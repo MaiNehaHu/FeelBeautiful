@@ -1,0 +1,218 @@
+.brands-card-container {
+  position: relative;
+  padding: 15% 3% 3% 3%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-card {
+  margin: 4% 1%;
+  width: 350px;
+  height: 300px;
+}
+.brand-card > .brand-images {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-card > section > img {
+  width: 150px;
+  height: 180px;
+  cursor: zoom-in;
+  object-fit: cover;
+
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px gray;
+  background: linear-gradient(to bottom right, skyblue, pink);
+}
+.brand-card > section > .index0 {
+  z-index: 3;
+  position: absolute;
+  transform-origin: 100%;
+  transform: rotateZ(0deg) scale(1);
+  transition: all 1s ease;
+}
+.brand-card > section > .index1 {
+  z-index: 2;
+  position: absolute;
+  transform-origin: 100%;
+  transform: rotateZ(20deg) scale(1.1);
+  transition: all 1s ease;
+}
+.brand-card > section > .index2 {
+  z-index: 1;
+  transform-origin: 100%;
+  transform: rotateZ(40deg) scale(1.2);
+  transition: all 1s ease;
+}
+
+.brand-card > section > .index0:hover {
+  z-index: 4;
+  transform: rotateZ(0deg) scale(1.1);
+}
+.brand-card > section > .index1:hover {
+  z-index: 4;
+  transform: rotateZ(20deg) scale(1.2);
+}
+.brand-card > section > .index2:hover {
+  z-index: 4;
+  transform: rotateZ(40deg) scale(1.3);
+}
+
+.brand-name {
+  font-size: x-large;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
+
+  font-family: "Permanent Marker", cursive;
+}
+.showAllButton {
+  
+  cursor: pointer;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(198, 228, 255);
+}
+.showAllButton > a {
+  margin: 20px;
+  text-decoration: none;
+  font-family: "Permanent Marker", cursive;
+}
+
+.brand-name,
+.showAllButton > a {
+  background: linear-gradient(
+    to right,
+    violet,
+    navy,
+    blue,
+    pink,
+    orange,
+    green,
+    black
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+.brand-name:hover,
+.showAllButton > a:hover {
+  background: black;
+
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  .brand-card {
+    width: 270px;
+    height: 270px;
+    margin: 0% 0% 15% 0%;
+  }
+
+  .brand-name {
+    font-size: large;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .brand-card {
+    margin: 5% 5% 10% 5%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .brand-card {
+    width: 220px;
+    height: 220px;
+    margin: 5% 5% 15% 5%;
+  }
+  .brand-card > section > img {
+    width: 120px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .brands-card-container {
+    padding: 20% 3% 3% 3%;
+  }
+  .brand-card {
+    width: 200px;
+    height: 250px;
+    margin: 5% 5% 15% 5%;
+  }
+  .brand-card > section > img {
+    width: 120px;
+    height: 150px;
+  }
+
+  .brand-name {
+    font-size: large;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .brands-card-container {
+    padding: 25% 3% 3% 3%;
+  }
+
+  .brand-card {
+    width: 160px;
+    height: 160px;
+    margin: 5% 5% 25% 5%;
+  }
+  .brand-card > section > img {
+    width: 100px;
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .brand-card {
+    width: 130px;
+    height: 160px;
+    margin: 5% 5% 25% 5%;
+  }
+  .brand-card > section > img {
+    width: 80px;
+    height: 100px;
+  }
+
+  .brand-name {
+    font-size: medium;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .brand-card {
+    width: 100px;
+    height: 120px;
+    margin: 5% 5% 20% 5%;
+  }
+  .brand-card > section > img {
+    width: 60px;
+    height: 80px;
+  }
+
+  .brand-name {
+    font-size: small;
+  }
+}

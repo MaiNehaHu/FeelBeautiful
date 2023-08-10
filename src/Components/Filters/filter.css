@@ -1,0 +1,249 @@
+#filter {
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+  margin-bottom: 10px;
+
+  width: 100%;
+  height: fit-content;
+  padding: 1% 5% 1% 5%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: black;
+  background-color: white;
+}
+
+.searching-tools{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-icon,
+.more-icon {
+  color: black;
+  padding: 10px;
+
+  user-select: none;
+  cursor: pointer;
+  font-size: x-large;
+}
+.search-icon:hover,
+.more-icon:hover {
+  color: blue;
+}
+
+#filter-show-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  font-size: large;
+  font-family: "Righteous", cursive;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#search-input {
+  padding: 0px 5px;
+  font-size: large;
+  border-radius: 0.5rem;
+
+  font-family: "Viga", sans-serif;
+  background-color: #e0e9ff;
+  animation: Show 0.5s ease-out;
+}
+
+#TotalfiltersContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 5% 0%;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(153, 120, 255);
+  backdrop-filter: blur(10px);
+  animation: OpacityShow 0.5s ease-out;
+}
+
+#filtersContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: rgb(153, 120, 255);
+  backdrop-filter: blur(10px);
+  animation: OpacityShow 0.5s ease-out;
+}
+
+@keyframes Show {
+  from {
+    display: none;
+    width: 0px;
+  }
+  to {
+    display: block;
+    width: 100%;
+  }
+}
+
+@keyframes OpacityShow {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+label {
+  font-size: larger;
+  font-family: "Viga", sans-serif;
+}
+#brand-filter,
+#type-filter,
+#range-filter,
+#applyButton {
+  padding: 5px;
+  border-radius: 10px;
+  font-size: large;
+
+  font-family: "Viga", sans-serif;
+}
+#brand-filter,
+#type-filter,
+#range-filter {
+  color: navy;
+  background-color: white;
+  font-family: "Viga", sans-serif;
+}
+#range-filter {
+  width: 50px;
+  margin-left: 5px;
+  text-align: center;
+}
+#applyButton {
+  padding: 7px;
+  color: white;
+  cursor: pointer;
+
+  background-color: navy;
+}
+
+.brand-input,
+.type-input,
+.range-input {
+  padding: 5% 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/*later use*/
+.disAppear {
+  display: none;
+  opacity: 0;
+  animation: Disappear 0.5s ease;
+}
+
+@keyframes Disappear {
+  from {
+    display: flex;
+    opacity: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .search-icon,
+  .more-icon {
+    font-size: large;
+    padding: 10px;
+  }
+
+  #filter-show-button {
+    font-size: medium;
+  }
+
+  #search-input {
+    font-size: medium;
+  }
+
+  label {
+    font-size: medium;
+  }
+
+  #brand-filter,
+  #type-filter,
+  #range-filter {
+    padding: 3px;
+    font-size: medium;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #filter {
+    padding: 3% 5% 1% 5%;
+  }
+
+  .search-icon,
+  .more-icon {
+    padding: 7px 10px;
+  }
+
+  #filter-show-button {
+    font-size: small;
+  }
+
+  #search-input {
+    font-size: small;
+    width: 50%;
+  }
+  @keyframes Show {
+    from {
+      display: none;
+      width: 0px;
+    }
+    to {
+      display: block;
+      width: 50%;
+    }
+  }
+
+  label {
+    font-size: small;
+  }
+
+  #brand-filter,
+  #type-filter,
+  #range-filter {
+    padding: 3px;
+    font-size: small;
+  }
+}

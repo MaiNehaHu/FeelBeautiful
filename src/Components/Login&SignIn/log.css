@@ -1,0 +1,118 @@
+.Container {
+  width: 100%;
+  height: 86vh;
+  height: 86dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+}
+.card {
+  width: 50%;
+  height: 80%;
+  padding: 1% 0%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  border-radius: 2rem;
+  background-color: rgb(139, 131, 255);
+  box-shadow: 0px 0px 15px blue;
+}
+
+#input-email,
+#input-password {
+  padding: 5px;
+  border-radius: 10px;
+  font-size: large;
+  color: navy;
+  background-color: white;
+
+  font-family: "Viga", sans-serif;
+}
+#girls-image {
+  user-select: none;
+  pointer-events: none;
+  cursor: none;
+
+  width: 200px;
+  height: 100%;
+}
+
+#loginButton,
+#login,
+#signin {
+  color: white;
+  font-size: x-large;
+
+  font-family: "Viga", sans-serif;
+}
+
+#loginButton {
+  color: white;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: navy;
+}
+
+#login,
+#signin {
+  cursor: pointer;
+  color: white;
+  border: 0px;
+  margin: 0px 30px;
+  background-color: #ffffff00;
+}
+#login:hover,
+#signin:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 750px) {
+  .card {
+    width: 70%;
+    height: 70%;
+  }
+
+  #input-email,
+  #input-password {
+    padding: 3px;
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 480px) {
+  .card > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #login,
+  #signin {
+    margin: 10px 0px;
+  }
+  .card {
+    width: 70%;
+    height: 80%;
+  }
+  #girls-image {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #input-email,
+  #input-password {
+    padding: 3px;
+    font-size: medium;
+  }
+  #loginButton {
+    padding: 5px 25px;
+    font-size: large;
+  }
+}
