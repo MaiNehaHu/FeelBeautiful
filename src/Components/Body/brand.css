@@ -2,6 +2,8 @@
   position: relative;
   padding: 15% 3% 3% 3%;
   width: 100%;
+  min-height: 50vh;
+  min-height: 50dvh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
