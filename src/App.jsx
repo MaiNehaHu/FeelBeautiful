@@ -61,8 +61,16 @@ function App() {
       XHTMLReq.onload = () => {
         if (XHTMLReq.status === 200 && XHTMLReq.status < 300) {
           console.log("All good at API");
+        }else{
+          console.log("Problem at API request");
         }
       };
+
+      xhr.onerror = () => {
+        console.log("Error Occured");
+      };
+      
+      xhr.send();
     }
     ajax();
   };
