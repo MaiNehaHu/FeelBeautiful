@@ -12,7 +12,7 @@ const Filters = ({
 
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
-  const [priceRange, setPriceRange] = useState(1);
+  const [priceRange, setPriceRange] = useState(100);
   const [brand, setBrand] = useSelectHook("All");
   const [type, setType] = useSelectHook("All");
   const [topPixel, setTopPixel] = useState(0);
@@ -152,7 +152,7 @@ const Filters = ({
                 min={1}
                 max={100}
                 step={0.5}
-                defaultValue={1}
+                defaultValue={100}
                 name="proce-range"
                 id="price-range"
               />
