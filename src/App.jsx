@@ -61,13 +61,20 @@ function App() {
       XHTMLReq.onload = () => {
         if (XHTMLReq.status === 200 && XHTMLReq.status < 300) {
           console.log("All good at API");
-        }else{
+        } else {
           console.log("Problem at API request");
+          setTimeout(() => {
+            window.location.reload();
+          }, 6000);
         }
       };
 
       XHTMLReq.onerror = () => {
         console.log("Error Occured");
+        setTimeout(() => {
+          window.location.reload();
+        }, 6000);
+        window.location.reload();
       };
 
       XHTMLReq.send();
@@ -79,7 +86,7 @@ function App() {
     init();
   });
 
-   /**Getting product list from API*/
+  /**Getting product list from API*/
   function init() {
     getProductsList();
   }
@@ -97,9 +104,6 @@ function App() {
         }, 10000);
       });
   };
-
- 
-
 
   /**On click on an brand showing all the products */
   function getClickedBrand(brand) {

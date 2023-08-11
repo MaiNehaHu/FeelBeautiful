@@ -28,33 +28,39 @@ const Brand = ({ list, getClickedBrand }) => {
   return (
     <React.Fragment>
       <div className="brands-card-container">
-        {brandsWithMoreImages.map((brand) => (
-          <div className="brand-card">
-            <section className="brand-images">
-              {brand.photos.slice(0, 3).map((photo, index) => (
-                <img
-                  draggable="false"
-                  className={`index${index}`}
-                  key={index}
-                  src={photo}
-                  alt={`${brand.brandName} ${index}`}
-                />
-              ))}
-            </section>
+        {!list || list.length === 0 || list.length === [] ? (
+          <h2 style={{ fontFamily: "monospace", textAlign: "center" }}>
+            Please wait...1 2 3
+          </h2>
+        ) : (
+          brandsWithMoreImages.map((brand) => (
+            <div className="brand-card">
+              <section className="brand-images">
+                {brand.photos.slice(0, 3).map((photo, index) => (
+                  <img
+                    draggable="false"
+                    className={`index${index}`}
+                    key={index}
+                    src={photo}
+                    alt={`${brand.brandName} ${index}`}
+                  />
+                ))}
+              </section>
 
-            <section className="brand-name">
-              <Link
-                to="/selectedBrand"
-                onClick={() => {
-                  getClickedBrand(brand);
-                  localStorage.setItem("ClickedBrand", JSON.stringify(brand));
-                }}
-              >
-                <p>💠{brand.brandName}</p>
-              </Link>
-            </section>
-          </div>
-        ))}
+              <section className="brand-name">
+                <Link
+                  to="/selectedBrand"
+                  onClick={() => {
+                    getClickedBrand(brand);
+                    localStorage.setItem("ClickedBrand", JSON.stringify(brand));
+                  }}
+                >
+                  <p>💠{brand.brandName}</p>
+                </Link>
+              </section>
+            </div>
+          ))
+        )}
       </div>
 
       <div className="showAllButton">
