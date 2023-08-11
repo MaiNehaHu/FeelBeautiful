@@ -34,27 +34,6 @@
   flex-direction: column;
 }
 
-/*scrollbar*/
-::-webkit-scrollbar {
-  width: 10px;
-  background-color: white;
-}
-::-webkit-scrollbar-track {
-  border-radius: 0.5rem;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 0.5rem;
-  background: linear-gradient(
-    to bottom,
-    violet,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-  );
-  border-style: none;
-}
 
 #selectedProductName {
   user-select: none;

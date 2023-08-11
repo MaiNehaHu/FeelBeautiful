@@ -7,3 +7,23 @@ body {
   color: black;
   background-color: white;
 }
+
+/*scrollbar*/
+::-webkit-scrollbar {
+  width: 12px;
+  background: linear-gradient(
+    to bottom,
+    violet,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 0.5rem;
+  border: 2px solid white;
+}
