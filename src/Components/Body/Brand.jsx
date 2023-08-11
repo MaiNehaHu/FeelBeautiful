@@ -1,6 +1,7 @@
 import React from "react";
 import "./brand.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Brand = ({ list, getClickedBrand }) => {
   //Getting all the brand names of all the products
@@ -25,11 +26,21 @@ const Brand = ({ list, getClickedBrand }) => {
     (brandObj) => brandObj.photos.length >= 2
   );
 
+  window.onload = () => {
+    setTimeout(() => {
+      document.querySelector("#please-wait").innerHTML =
+        "If you are waiting for more than 30 sec. Kindly open in Desktop";
+    }, 30000);
+  };
+
   return (
     <React.Fragment>
       <div className="brands-card-container">
         {!list || list.length === 0 || list.length === [] ? (
-          <h2 style={{ fontFamily: "monospace", textAlign: "center" }}>
+          <h2
+            id="please-wait"
+            style={{ fontFamily: "monospace", textAlign: "center" }}
+          >
             Please wait...1 2 3
           </h2>
         ) : (
