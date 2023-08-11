@@ -116,3 +116,14 @@
     font-size: large;
   }
 }
+@media screen and (max-width: 460px) {
+   .card {
+    width: 70%;
+    height: 90%;
+  }
+  #login,
+  #signin {
+    margin: 3px 0px;
+    font-size: medium;
+  }
+}
