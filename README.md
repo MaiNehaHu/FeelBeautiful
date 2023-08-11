@@ -1,6 +1,6 @@
 # Feel Beautifull - an E-commerce web app
 
-## link: https://mainehahu.github.io/FeelBeautifull/
+## link: https://mainehahu.github.io/FeelBeautiful/
 
 > 1. This is an E-commerce Web App for Beauty products
 > 2. On the home page, a collection of brands appears.
