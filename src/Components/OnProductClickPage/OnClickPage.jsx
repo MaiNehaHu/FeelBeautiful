@@ -52,7 +52,7 @@ const OnClickPage = ({ clicked, addToCart }) => {
   return (
     <React.Fragment>
       {product == "" || product === [] ? (
-        <h1 style={{ fontFamily: 'monospace',textAlign:'center' }}>
+        <h1 style={{ fontFamily: "monospace", textAlign: "center" }}>
           Please wait...1 2 3
         </h1>
       ) : (
@@ -78,20 +78,18 @@ const OnClickPage = ({ clicked, addToCart }) => {
             </section>
 
             <section id="productDescription">
-              <p>
-                {
-                  (product.description =
-                    product.description.length > 350
-                      ? product.description.slice(0, 350).concat("...")
-                      : product.description)
-                }
-              </p>
+              <details>
+                <summary style={{ cursor: "pointer" }}>
+                  Details of product
+                </summary>
+                <p>{product.description}</p>
 
-              <div className="tags">
-                {product.tag_list.map((tag, i) => (
-                  <p key={i}>#{tag}</p>
-                ))}
-              </div>
+                <div className="tags">
+                  {product.tag_list.map((tag, i) => (
+                    <p key={i}>#{tag}</p>
+                  ))}
+                </div>
+              </details>
             </section>
 
             <section className="colors">

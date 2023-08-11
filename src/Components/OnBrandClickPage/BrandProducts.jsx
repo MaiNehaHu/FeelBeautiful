@@ -76,7 +76,9 @@ const BrandProducts = ({ allBrandslist, clickedBrand, getClickedProduct }) => {
                 </section>
 
                 <section className="brand">
-                  <p>{item.brand}</p>
+                  <p>
+                    <q>{item.brand}</q>
+                  </p>
                 </section>
 
                 <section className="name">
