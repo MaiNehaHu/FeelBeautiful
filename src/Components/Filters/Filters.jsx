@@ -150,7 +150,7 @@ const Filters = ({
                 }}
                 type="range"
                 min={1}
-                max={10}
+                max={100}
                 step={0.5}
                 defaultValue={1}
                 name="proce-range"
