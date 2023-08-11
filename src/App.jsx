@@ -201,7 +201,7 @@ function App() {
   // });
 
   return (
-    <BrowserRouter basename="/FeelBeautifull">
+    <BrowserRouter basename="/FeelBeautiful">
       <Routes>
         <Route
           path="/"
