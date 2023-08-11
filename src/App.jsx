@@ -15,7 +15,7 @@ import ErrorPage from "./Components/404ErrorPage.jsx/ErrorPage";
 import NavigateToAllProd from "./Components/NavigateToAllProducts/NavigateToAllProd";
 import LogAndSign from "./Components/Login&SignIn/logAndSign";
 
-const url = "http://makeup-api.herokuapp.com/api/v1/products.json";
+const url = "https://makeup-api.herokuapp.com/api/v1/products.json";
 
 const listLocalStorageKey = "Total-list";
 function getList() {
