@@ -66,11 +66,11 @@ function App() {
         }
       };
 
-      xhr.onerror = () => {
+      XHTMLReq.onerror = () => {
         console.log("Error Occured");
       };
-      
-      xhr.send();
+
+      XHTMLReq.send();
     }
     ajax();
   };
