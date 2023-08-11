@@ -15,6 +15,8 @@ import ErrorPage from "./Components/404ErrorPage.jsx/ErrorPage";
 import NavigateToAllProd from "./Components/NavigateToAllProducts/NavigateToAllProd";
 import LogAndSign from "./Components/Login&SignIn/logAndSign";
 
+const url = "http://makeup-api.herokuapp.com/api/v1/products.json";
+
 const listLocalStorageKey = "Total-list";
 function getList() {
   let list = localStorage.getItem("Total-list");
@@ -51,9 +53,32 @@ function App() {
   let newCartList = [...cart];
 
   /**Getting product from API */
+  window.onload = () => {
+    function ajax() {
+      let XHTMLReq = new XMLHttpRequest();
+      XHTMLReq.open("GET", url, true);
+
+      XHTMLReq.onload = () => {
+        if (XHTMLReq.status === 200 && XHTMLReq.status < 300) {
+          console.log("All good at API");
+        }
+      };
+    }
+    ajax();
+  };
+
+  window.addEventListener("load", function () {
+    init();
+  });
+
+   /**Getting product list from API*/
+  function init() {
+    getProductsList();
+  }
+
   const getProductsList = () => {
     axios
-      .get("http://makeup-api.herokuapp.com/api/v1/products.json")
+      .get(url)
       .then(({ data }) => {
         setList(data);
       })
@@ -65,10 +90,8 @@ function App() {
       });
   };
 
-  /**Getting product list from API*/
-  useEffect(() => {
-    getProductsList();
-  }, []);
+ 
+
 
   /**On click on an brand showing all the products */
   function getClickedBrand(brand) {
