@@ -6,7 +6,9 @@ const Navbar = ({ count }) => {
   return (
     <React.Fragment>
       <div id="nav">
-        <section id="logo">Feel Beautiful❤️</section>
+        <section id="logo">
+          <Link to="/">Feel Beautiful❤️</Link>
+        </section>
 
         <section id="navs">
           <Link to="/">Home🏡</Link>
