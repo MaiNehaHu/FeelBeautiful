@@ -31,7 +31,7 @@ const LogAndSign = () => {
   );
 
   function uniqueKey() {
-    return `Beauty${Math.ceil(Math.random() * Math.pow(10, 10))}`;
+    return `Be${Math.ceil(Math.random() * Math.pow(10, 4))}au${Math.ceil(Math.random() * Math.pow(10, 4))}ty`;
   }
 
   function goForSigninValidation() {
