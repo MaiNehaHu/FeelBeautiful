@@ -69,10 +69,6 @@
   margin: 0px 30px;
   background-color: #ffffff00;
 }
-#login:hover,
-#signin:hover {
-  text-decoration: underline;
-}
 
 .notification {
   position: absolute;

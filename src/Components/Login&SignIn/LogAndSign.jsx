@@ -110,11 +110,19 @@ const LogAndSign = () => {
       >
         <div className="card">
           <section className="AskLoginOrSignIn">
-            <button id="signin" onClick={() => setFirstTime(true)}>
+            <button
+              id="signin"
+              onClick={() => setFirstTime(true)}
+              style={{ textDecoration: firstTime ? "underline" : "none" }}
+            >
               Sign In
             </button>
 
-            <button id="login" onClick={() => setFirstTime(false)}>
+            <button
+              id="login"
+              onClick={() => setFirstTime(false)}
+              style={{ textDecoration: !firstTime ? "underline" : "none" }}
+            >
               Log In
             </button>
           </section>
@@ -157,11 +165,19 @@ const LogAndSign = () => {
       >
         <div className="card">
           <section className="AskLoginOrSignIn">
-            <button id="signin" onClick={() => setFirstTime(true)}>
+            <button
+              id="signin"
+              onClick={() => setFirstTime(true)}
+              style={{ textDecoration: firstTime ? "underline" : "none" }}
+            >
               Sign In
             </button>
 
-            <button id="login" onClick={() => setFirstTime(false)}>
+            <button
+              id="login"
+              onClick={() => setFirstTime(false)}
+              style={{ textDecoration: !firstTime ? "underline" : "none" }}
+            >
               Log In
             </button>
           </section>
