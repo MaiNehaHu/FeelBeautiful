@@ -138,6 +138,11 @@ const LogAndSign = () => {
               name="email"
               id="input-email"
               placeholder="yourName@gmail.com"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  goforLoginValidation();
+                }
+              }}
             />
           </section>
 
@@ -149,6 +154,11 @@ const LogAndSign = () => {
               name="password"
               id="input-password"
               placeholder="Secrete Password"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  goforLoginValidation();
+                }
+              }}
             />
           </section>
 
@@ -194,6 +204,11 @@ const LogAndSign = () => {
               name="email"
               id="input-email"
               placeholder="yourName@gmail.com"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  goForSigninValidation();
+                }
+              }}
             />
           </section>
 
@@ -205,6 +220,11 @@ const LogAndSign = () => {
               name="password"
               id="input-password"
               placeholder="Secrete Password"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  goForSigninValidation();
+                }
+              }}
             />
           </section>
 
