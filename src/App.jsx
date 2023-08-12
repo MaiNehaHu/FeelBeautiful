@@ -13,7 +13,7 @@ import AllProducts from "./Components/AllProducts/AllProducts";
 import BrandProducts from "./Components/OnBrandClickPage/brandProducts";
 import ErrorPage from "./Components/404ErrorPage.jsx/ErrorPage";
 import NavigateToAllProd from "./Components/NavigateToAllProducts/NavigateToAllProd";
-import LogAndSign from "./Components/Login&SignIn/logAndSign";
+import LogAndSign from "./Components/Login&SignIn/LogAndSign";
 
 const url = "https://makeup-api.herokuapp.com/api/v1/products.json";
 
