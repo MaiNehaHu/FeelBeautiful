@@ -4,10 +4,10 @@ import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 
 const Clicked_LS_Key = "ClickedProduct";
 function getClickedProduct() {
-  let product = localStorage.getItem(Clicked_LS_Key);
+  let product = sessionStorage.getItem(Clicked_LS_Key);
 
   if (product) {
-    return JSON.parse(localStorage.getItem(Clicked_LS_Key));
+    return JSON.parse(sessionStorage.getItem(Clicked_LS_Key));
   } else return;
 }
 

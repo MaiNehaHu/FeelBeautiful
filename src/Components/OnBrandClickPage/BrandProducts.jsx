@@ -7,10 +7,10 @@ import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 //Accessing here
 const Brand_LS_Key = "ClickedBrand";
 function getBrand() {
-  let brand = localStorage.getItem(Brand_LS_Key);
+  let brand = sessionStorage.getItem(Brand_LS_Key);
 
   if (brand) {
-    return JSON.parse(localStorage.getItem(Brand_LS_Key));
+    return JSON.parse(sessionStorage.getItem(Brand_LS_Key));
   } else {
     return [];
   }
@@ -60,7 +60,7 @@ const BrandProducts = ({ allBrandslist, clickedBrand, getClickedProduct }) => {
                 className="product-card"
                 onClick={() => {
                   getClickedProduct(item);
-                  localStorage.setItem("ClickedProduct", JSON.stringify(item));
+                  sessionStorage.setItem("ClickedProduct", JSON.stringify(item));
                 }}
               >
                 <section className="price">

@@ -63,7 +63,7 @@ const Brand = ({ list, getClickedBrand }) => {
                   to="/selectedBrand"
                   onClick={() => {
                     getClickedBrand(brand);
-                    localStorage.setItem("ClickedBrand", JSON.stringify(brand));
+                    sessionStorage.setItem("ClickedBrand", JSON.stringify(brand));
                   }}
                 >
                   <p>💠{brand.brandName}</p>

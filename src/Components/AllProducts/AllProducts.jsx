@@ -121,7 +121,7 @@ const AllProducts = ({ getClickedProduct, list }) => {
               key={i}
               onClick={() => {
                 getClickedProduct(item);
-                localStorage.setItem("ClickedProduct", JSON.stringify(item));
+                sessionStorage.setItem("ClickedProduct", JSON.stringify(item));
               }}
             >
               <section className="price">
