@@ -11,3 +11,5 @@
 > 7. If the same product with the same color is added. It will not duplicate in the cart. Rather the count of products will increase.
 > 8. When clicking on the Pay button. You'll get directed to the Login or SignIn page.
 > 9. The login and Sign-in page is also working.
+
+![FeelBeautiful](https://github.com/MaiNehaHu/FeelBeautiful/assets/111631957/d72095f9-848c-4147-a6fd-19c3924a1806)
