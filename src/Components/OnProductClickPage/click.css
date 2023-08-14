@@ -103,6 +103,12 @@
   font-family: "Viga", sans-serif;
 }
 
+@media screen and (max-width:780px) {
+  #selectedProductName {
+    font-size: 2.8rem;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .product-details-onClick {
     padding: 5% 5%;
