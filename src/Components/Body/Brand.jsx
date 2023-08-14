@@ -60,10 +60,13 @@ const Brand = ({ list, getClickedBrand }) => {
 
               <section className="brand-name">
                 <Link
-                  to="/selectedBrand"
+                  to={`/Brand/${brand.brandName}`}
                   onClick={() => {
                     getClickedBrand(brand);
-                    sessionStorage.setItem("ClickedBrand", JSON.stringify(brand));
+                    sessionStorage.setItem(
+                      "ClickedBrand",
+                      JSON.stringify(brand)
+                    );
                   }}
                 >
                   <p>💠{brand.brandName}</p>

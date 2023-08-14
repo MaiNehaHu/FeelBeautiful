@@ -228,7 +228,7 @@ function App() {
         {/**selectedBrand */}
 
         <Route
-          path="/selectedBrand"
+          path={`/Brand/${clickedBrand.brandName}`}
           element={
             <React.Fragment>
               <Navbar count={cartCount} />
@@ -241,7 +241,7 @@ function App() {
           }
         />
         <Route
-          path="/Product"
+          path={`/Product/${clickedProduct.name}`}
           element={
             <React.Fragment>
               <Navbar count={cartCount} />

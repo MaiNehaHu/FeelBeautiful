@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Image from "../../Images/noSearchResult.png";
 import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 import Filters from "../Filters/Filters";
+import ProductCard from "../ProductCard/ProductCard";
 
 function getList() {
   let list = localStorage.getItem("Total-list");
@@ -98,8 +99,8 @@ const AllProducts = ({ getClickedProduct, list }) => {
   }
 
   useEffect(() => {
-    if (productsList.length === 0) setDisplayNotFoundImg(true)
-    else setDisplayNotFoundImg(false)
+    if (productsList.length === 0) setDisplayNotFoundImg(true);
+    else setDisplayNotFoundImg(false);
   }, [productsList]);
 
   return (
@@ -115,37 +116,8 @@ const AllProducts = ({ getClickedProduct, list }) => {
 
       <div id="product-container">
         {productsList.map((item, i) => (
-          <Link to="/Product">
-            <div
-              className="product-card"
-              key={i}
-              onClick={() => {
-                getClickedProduct(item);
-                sessionStorage.setItem("ClickedProduct", JSON.stringify(item));
-              }}
-            >
-              <section className="price">
-                <div>
-                  <span>{item.price_sign}</span>
-                  <span>{item.price}</span>
-                </div>
-                <p className="type">{item.product_type}</p>
-              </section>
-
-              <section className="photo">
-                <img src={item.api_featured_image} alt={item.name} />
-              </section>
-
-              <section className="brand">
-                <p>
-                  <q>{item.brand}</q>
-                </p>
-              </section>
-
-              <section className="name">
-                <p> {item.name} </p>
-              </section>
-            </div>
+          <Link to={`/Product/${item.name}`} key={i}>
+            <ProductCard item={item} getClickedProduct={getClickedProduct} />
           </Link>
         ))}
 

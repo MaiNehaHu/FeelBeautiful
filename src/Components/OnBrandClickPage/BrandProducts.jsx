@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./brands.css";
 import { Link } from "react-router-dom";
 import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+import ProductCard from "../ProductCard/ProductCard";
 
 //storing in Local Storage from Body component
 //Accessing here
@@ -55,36 +56,8 @@ const BrandProducts = ({ allBrandslist, clickedBrand, getClickedProduct }) => {
           </div>
         ) : (
           brandToDisplay.map((item, i) => (
-            <Link to="/Product" key={i}>
-              <div
-                className="product-card"
-                onClick={() => {
-                  getClickedProduct(item);
-                  sessionStorage.setItem("ClickedProduct", JSON.stringify(item));
-                }}
-              >
-                <section className="price">
-                  <div>
-                    <span>{item.price_sign}</span>
-                    <span>{item.price}</span>
-                  </div>
-                  <p className="type">{item.product_type}</p>
-                </section>
-
-                <section className="photo">
-                  <img src={item.api_featured_image} alt={item.name} />
-                </section>
-
-                <section className="brand">
-                  <p>
-                    <q>{item.brand}</q>
-                  </p>
-                </section>
-
-                <section className="name">
-                  <p> {item.name} </p>
-                </section>
-              </div>
+            <Link to={`/Product/${item.name}`} key={i}>
+              <ProductCard item={item} getClickedProduct={getClickedProduct} />
             </Link>
           ))
         )}
