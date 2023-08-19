@@ -82,7 +82,7 @@ function App() {
     ajax();
   };
 
-  window.addEventListener("load", function () {
+  window.addEventListener("load", () => {
     init();
   });
 
@@ -92,13 +92,19 @@ function App() {
   }
 
   const getProductsList = () => {
-    axios
-      .get(url)
-      .then(({ data }) => {
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
         setList(data);
       })
-      .catch(() => {
-        //reload if got rerror
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+        // Reload the page if there's an error
         setTimeout(() => {
           window.location.reload();
         }, 10000);

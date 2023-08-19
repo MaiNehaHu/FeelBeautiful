@@ -31,7 +31,9 @@ const LogAndSign = () => {
   );
 
   function uniqueKey() {
-    return `Be${Math.ceil(Math.random() * Math.pow(10, 4))}au${Math.ceil(Math.random() * Math.pow(10, 4))}ty`;
+    return `Be${Math.ceil(Math.random() * Math.pow(10, 4))}au${Math.ceil(
+      Math.random() * Math.pow(10, 4)
+    )}ty`;
   }
 
   function goForSigninValidation() {
@@ -115,7 +117,7 @@ const LogAndSign = () => {
               onClick={() => setFirstTime(true)}
               style={{ textDecoration: firstTime ? "underline" : "none" }}
             >
-              Sign In
+              Register
             </button>
 
             <button
@@ -180,7 +182,7 @@ const LogAndSign = () => {
               onClick={() => setFirstTime(true)}
               style={{ textDecoration: firstTime ? "underline" : "none" }}
             >
-              Sign In
+              Register
             </button>
 
             <button

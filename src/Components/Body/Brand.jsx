@@ -36,7 +36,7 @@ const Brand = ({ list, getClickedBrand }) => {
   return (
     <React.Fragment>
       <div className="brands-card-container">
-        {!list || list.length === 0 || list.length === [] ? (
+        {!list || list.length === 0 ? (
           <h2
             id="please-wait"
             style={{ fontFamily: "monospace", textAlign: "center" }}
