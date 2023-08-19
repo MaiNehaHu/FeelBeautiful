@@ -115,7 +115,7 @@ const LogAndSign = () => {
               onClick={() => setFirstTime(true)}
               style={{ textDecoration: firstTime ? "underline" : "none" }}
             >
-              Sign In
+              Register
             </button>
 
             <button
@@ -180,7 +180,7 @@ const LogAndSign = () => {
               onClick={() => setFirstTime(true)}
               style={{ textDecoration: firstTime ? "underline" : "none" }}
             >
-              Sign In
+              Register
             </button>
 
             <button

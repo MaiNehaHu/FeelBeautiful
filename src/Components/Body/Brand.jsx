@@ -29,14 +29,14 @@ const Brand = ({ list, getClickedBrand }) => {
   window.onload = () => {
     setTimeout(() => {
       document.querySelector("#please-wait").innerHTML =
-        "If you are waiting for more than 30 sec. Kindly open in Desktop";
+        "If you are waiting for more than 30 sec. Kindly Refresh";
     }, 30000);
   };
 
   return (
     <React.Fragment>
       <div className="brands-card-container">
-        {!list || list.length === 0 || list.length === [] ? (
+        {!list ? (
           <h2
             id="please-wait"
             style={{ fontFamily: "monospace", textAlign: "center" }}
