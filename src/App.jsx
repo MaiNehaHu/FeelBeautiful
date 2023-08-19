@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -52,35 +52,6 @@ function App() {
   /**Copy of the cart list to use multiple times */
   let newCartList = [...cart];
 
-  /**Getting product from API */
-  window.onload = () => {
-    function ajax() {
-      let XHTMLReq = new XMLHttpRequest();
-      XHTMLReq.open("GET", url, true);
-
-      XHTMLReq.onload = () => {
-        if (XHTMLReq.status === 200 && XHTMLReq.status < 300) {
-          console.log("All good at API");
-        } else {
-          console.log("Problem at API request");
-          setTimeout(() => {
-            window.location.reload();
-          }, 6000);
-        }
-      };
-
-      XHTMLReq.onerror = () => {
-        console.log("Error Occured");
-        setTimeout(() => {
-          window.location.reload();
-        }, 6000);
-        window.location.reload();
-      };
-
-      XHTMLReq.send();
-    }
-    ajax();
-  };
 
   window.addEventListener("load", () => {
     init();
@@ -101,6 +72,7 @@ function App() {
       })
       .then((data) => {
         setList(data);
+        console.log("All good at API");
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
