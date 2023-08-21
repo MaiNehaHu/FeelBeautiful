@@ -27,7 +27,7 @@ const Brand = ({ list, getClickedBrand }) => {
   );
 
   let details = navigator.userAgent;
-  let regexp = /android|iphone|kindle|ipad/i;
+  let regexp = /android/i;
   let isMobileDevice = regexp.test(details);
 
   return (
