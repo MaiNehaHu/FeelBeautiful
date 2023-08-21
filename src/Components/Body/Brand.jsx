@@ -26,23 +26,30 @@ const Brand = ({ list, getClickedBrand }) => {
     (brandObj) => brandObj.photos.length >= 2
   );
 
-  window.onload = () => {
-    setTimeout(() => {
-      document.querySelector("#please-wait").innerHTML =
-        "If you are waiting for more than 30 sec. Kindly open in Desktop";
-    }, 30000);
-  };
+  let details = navigator.userAgent;
+  let regexp = /android|iphone|kindle|ipad/i;
+  let isMobileDevice = regexp.test(details);
 
   return (
     <React.Fragment>
       <div className="brands-card-container">
         {!list || list.length === 0 ? (
-          <h2
-            id="please-wait"
-            style={{ fontFamily: "monospace", textAlign: "center" }}
-          >
-            Please wait...1 2 3
-          </h2>
+          isMobileDevice ? (
+            <p
+              id="please-wait"
+              style={{ fontFamily: "monospace", textAlign: "center" }}
+            >
+              Trust me I tried alot😣. But my project is not 📵getting data in
+              non-Desktop devices. Kindly, open it in you laptop💻.
+            </p>
+          ) : (
+            <h2
+              id="please-wait"
+              style={{ fontFamily: "monospace", textAlign: "center" }}
+            >
+              Please wait...1 2 3
+            </h2>
+          )
         ) : (
           brandsWithMoreImages.map((brand) => (
             <div className="brand-card">
