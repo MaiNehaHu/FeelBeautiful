@@ -66,7 +66,7 @@ const OnClickPage = ({ clicked, addToCart }) => {
               <p id="selectedProductName">{product.name.toUpperCase()}</p>
               <p id="productType">Type: {product.product_type}</p>
               <p id="selectedProductBrand">
-                Brand: {product.brand.toUpperCase()}
+                Brand: {product.brand}
               </p>
             </section>
 

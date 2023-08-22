@@ -12,7 +12,7 @@
   background-color: white;
 }
 .product-card:hover {
-  box-shadow: 0px 0px 15px rgb(112, 112, 255);
+  box-shadow: 0px 0px 15px gray;
   transition: all 0.4s ease;
 }
 
@@ -24,26 +24,30 @@
 }
 .brand > p {
   text-align: center;
-  color: darkmagenta;
+  color: blue;
+  font-size: medium;
+
+  font-family: "Staatliches", cursive;
+}
+
+.name > p {
+  color: black;
+  text-align: center;
   font-size: medium;
   font-family: "Secular One", sans-serif;
 }
-.name > p {
-  color: navy;
-  text-align: start;
-  font-size: x-large;
-  font-family: "Staatliches", cursive;
-}
+
 .price {
-  color: navy;
+  color: black;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "Lilita One", cursive;
 }
+
 .type {
-  color: orangered;
+  color: black;
   font-family: "Rowdies", cursive;
 }
 
@@ -71,10 +75,10 @@
     height: 120px;
   }
   .name > p {
-    font-size: medium;
+    font-size: small;
   }
   .brand > p {
-    font-size: medium;
+    font-size: smaller;
   }
   .price,
   .type {

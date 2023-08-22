@@ -70,17 +70,23 @@
 }
 
 .brand-name {
-  font-size: x-large;
   text-align: center;
   user-select: none;
   cursor: pointer;
   word-wrap: break-word;
   word-break: break-all;
 
-  font-family: "Permanent Marker", cursive;
+  font-family: "Righteous", cursive;
 }
+.brand-name > a > p {
+  font-size: medium;
+  color: black;
+}
+.brand-name > a > p:hover {
+  color: blue;
+}
+
 .showAllButton {
-  
   cursor: pointer;
   font-size: x-large;
   display: flex;
@@ -88,38 +94,10 @@
   background-color: rgb(198, 228, 255);
 }
 .showAllButton > a {
+  color: blue;
   margin: 20px;
   text-decoration: none;
-  font-family: "Permanent Marker", cursive;
-}
-
-.brand-name,
-.showAllButton > a {
-  background: linear-gradient(
-    to right,
-    violet,
-    navy,
-    blue,
-    pink,
-    orange,
-    green,
-    black
-  );
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-.brand-name:hover,
-.showAllButton > a:hover {
-  background: black;
-
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  font-family: "Righteous", cursive;
 }
 
 @media screen and (max-width: 1200px) {

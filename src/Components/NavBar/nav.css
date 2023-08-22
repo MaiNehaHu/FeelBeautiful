@@ -19,13 +19,9 @@
 
   font-size: xx-large;
   font-family: "Righteous", cursive;
-
-  background: linear-gradient(to right, red, blue);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+}
+#logo > a{
+  color: red;
 }
 
 #logo,
@@ -42,7 +38,7 @@
 }
 
 #navs > a {
-  color: blue;
+  color: black;
   cursor: pointer;
   font-size: larger;
   user-select: none;
@@ -56,8 +52,8 @@
 }
 
 #navs > a:hover {
-  color: orange;
-  border-bottom: 3px solid orangered;
+  color: blue;
+  border-bottom: 3px solid blue;
   transition: all 0.5s ease-out;
 }
 

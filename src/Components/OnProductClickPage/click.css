@@ -34,10 +34,9 @@
   flex-direction: column;
 }
 
-
 #selectedProductName {
   user-select: none;
-  color: navy;
+  color: black;
   font-size: 3.5rem;
   font-family: "Viga", sans-serif;
 }
@@ -45,14 +44,14 @@
 #productType {
   user-select: none;
   font-size: larger;
-  color: navy;
+  color: black;
   font-family: "Righteous", cursive;
 }
 
 #selectedProductBrand {
   user-select: none;
-  color: crimson;
-  font-size: xx-large;
+  color: blue;
+  font-size: large;
   font-family: "Righteous", cursive;
 }
 
@@ -60,7 +59,7 @@
   color: black;
   user-select: none;
   font-size: 4rem;
-  font-family: "Monoton", cursive;
+  font-family: "Viga", sans-serif;
 }
 
 #productDescription {
@@ -69,7 +68,7 @@
 }
 
 .tags {
-  color: navy;
+  color: black;
   gap: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -99,11 +98,11 @@
   font-size: large;
   color: white;
   border-radius: 1rem;
-  background-color: crimson;
+  background-color: blue;
   font-family: "Viga", sans-serif;
 }
 
-@media screen and (max-width:780px) {
+@media screen and (max-width: 780px) {
   #selectedProductName {
     font-size: 2.8rem;
   }

@@ -56,7 +56,7 @@ const BrandProducts = ({ allBrandslist, clickedBrand, getClickedProduct }) => {
           </div>
         ) : (
           brandToDisplay.map((item, i) => (
-            <Link to={`/Product/${item.name}`} key={i}>
+            <Link to={`/Product`} key={i}>
               <ProductCard item={item} getClickedProduct={getClickedProduct} />
             </Link>
           ))

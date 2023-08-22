@@ -67,7 +67,7 @@ const Brand = ({ list, getClickedBrand }) => {
 
               <section className="brand-name">
                 <Link
-                  to={`/Brand/${brand.brandName}`}
+                  to={`/Brand`}
                   onClick={() => {
                     getClickedBrand(brand);
                     sessionStorage.setItem(
@@ -76,7 +76,7 @@ const Brand = ({ list, getClickedBrand }) => {
                     );
                   }}
                 >
-                  <p>💠{brand.brandName}</p>
+                  <p>{brand.brandName.toUpperCase()}</p>
                 </Link>
               </section>
             </div>
