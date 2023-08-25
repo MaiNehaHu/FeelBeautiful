@@ -50,7 +50,7 @@
 
 #selectedProductBrand {
   user-select: none;
-  color: blue;
+  color: crimson;
   font-size: large;
   font-family: "Righteous", cursive;
 }
@@ -98,7 +98,7 @@
   font-size: large;
   color: white;
   border-radius: 1rem;
-  background-color: blue;
+  background-color: crimson;
   font-family: "Viga", sans-serif;
 }
 
