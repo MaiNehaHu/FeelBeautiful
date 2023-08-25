@@ -1,28 +1,18 @@
 .cart-container {
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100%;
   padding: 2% 5%;
 }
 
 .cart-product {
-  margin: 20px 0px;
+  margin: 5px 0px;
   padding: 1rem;
   list-style: none;
-  border-radius: 1rem;
 
   display: flex;
   align-items: center;
   flex-direction: row;
-}
-
-li:nth-child(2n + 1) {
-  background-color: white;
-  box-shadow: 0px 0px 5px rgb(154, 173, 255);
-}
-li:nth-child(2n) {
-  background-color: white;
-  box-shadow: 0px 0px 5px rgb(255, 175, 191);
+  border-bottom: 2px solid black;
 }
 
 /*Color, Name, Cost, Image*/
@@ -50,7 +40,7 @@ li:nth-child(2n) {
 /*Price of product and Calculated price*/
 .price-of-item,
 .calculated-price {
-  color: blue;
+  color: black;
   width: 20%;
   text-align: center;
   font-size: larger;

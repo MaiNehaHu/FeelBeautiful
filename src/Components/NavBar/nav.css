@@ -52,8 +52,8 @@
 }
 
 #navs > a:hover {
-  color: blue;
-  border-bottom: 3px solid blue;
+  color: red;
+  border-bottom: 3px solid crimson;
   transition: all 0.5s ease-out;
 }
 
