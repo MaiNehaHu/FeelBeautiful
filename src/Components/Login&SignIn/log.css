@@ -8,10 +8,11 @@
   justify-content: center;
 
   background-color: white;
+  font-family: "Viga", sans-serif;
 }
+
 .card {
   width: 50%;
-  height: 80%;
   padding: 1% 0%;
 
   display: flex;
@@ -20,20 +21,24 @@
   flex-direction: column;
 
   border-radius: 2rem;
-  background-color: rgb(139, 131, 255);
-  box-shadow: 0px 0px 15px blue;
+  background-color: rgb(253, 97, 123);
+}
+
+.Container > .card > section {
+  margin: 10px 0px;
 }
 
 #input-email,
 #input-password {
   padding: 5px;
   border-radius: 10px;
-  font-size: large;
+  font-size: medium;
   color: navy;
   background-color: white;
 
   font-family: "Viga", sans-serif;
 }
+
 #girls-image {
   user-select: none;
   pointer-events: none;
@@ -46,10 +51,9 @@
 #loginButton,
 #signinButton,
 #login,
-#signin {
+#register {
   color: white;
-  font-size: x-large;
-
+  font-size: large;
   font-family: "Viga", sans-serif;
 }
 
@@ -58,11 +62,11 @@
   color: white;
   padding: 5px 20px;
   border-radius: 10px;
-  background-color: navy;
+  background-color: crimson;
 }
 
 #login,
-#signin {
+#register {
   cursor: pointer;
   color: white;
   border: 0px;
@@ -117,22 +121,51 @@
 
   background-color: gold;
   box-shadow: 2px 2px 1px goldenrod;
-  font-family: "Viga", sans-serif;
+}
+
+#sign-in-using {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#sign-in-using > button {
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: white;
+  width: 35px;
+  height: 35px;
+
+  margin: 0px 10px;
+  padding: 5px;
+}
+
+#sign-in-using > button > img {
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 750px) {
   .card {
     width: 70%;
-    height: 70%;
   }
 
   #input-email,
   #input-password {
     padding: 3px;
-    font-size: medium;
   }
 }
+
 @media screen and (max-width: 480px) {
+  .card {
+    width: 70%;
+  }
+
   .card > section {
     display: flex;
     flex-direction: column;
@@ -141,13 +174,10 @@
   }
 
   #login,
-  #signin {
+  #register {
     margin: 10px 0px;
   }
-  .card {
-    width: 70%;
-    height: 80%;
-  }
+
   #girls-image {
     width: 150px;
   }
@@ -157,27 +187,31 @@
   #input-email,
   #input-password {
     padding: 3px;
-    font-size: medium;
   }
+
   #loginButton,
   #signinButton {
     padding: 5px 25px;
-    font-size: large;
   }
+
   .loginedIn > p,
   .signedIn > p {
     padding: 10px 10px;
+  }
+
+  #sign-in-using > button {
+    height: 30px;
+    width: 30px;
   }
 }
 @media screen and (max-width: 330px) {
   .card {
     width: 70%;
-    height: 90%;
     border-radius: 0.5rem;
   }
 
   #login,
-  #signin {
+  #register {
     margin: 3px 0px;
     font-size: medium;
   }

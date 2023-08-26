@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./log.css";
 import image from "../../Images/forLoginPage.png";
-
+import google from "../../Images/google.png";
+import microSoft from "../../Images/ms.png";
 const User_ID_LS = "Users";
 
 function getUsersCredentialsList() {
@@ -24,7 +25,7 @@ const LogAndSign = () => {
 
   const [displayNotification, setDisplayNotification] = useState(false);
   const [loggedInNotify, setLoggedinNotify] = useState(false);
-  const [signInNotify, setSigninNotify] = useState(false);
+  const [registeredNotify, setRegisteredNotify] = useState(false);
 
   const [usersCredenatialsList, setUsersCredenatialsList] = useState(
     getUsersCredentialsList()
@@ -36,7 +37,7 @@ const LogAndSign = () => {
     )}ty`;
   }
 
-  function goForSigninValidation() {
+  function RegistrationValidation() {
     !signinEmail ||
     !signinPass ||
     !signinEmail.includes("@") ||
@@ -61,11 +62,11 @@ const LogAndSign = () => {
       });
 
       setDisplayNotification(true);
-      setSigninNotify(true);
+      setRegisteredNotify(true);
 
       setTimeout(() => {
         setDisplayNotification(false);
-        setSigninNotify(false);
+        setRegisteredNotify(false);
       }, 3000);
 
       localStorage.setItem(User_ID_LS, JSON.stringify(usersCredenatialsList));
@@ -111,13 +112,13 @@ const LogAndSign = () => {
         style={{ display: firstTime ? "none" : "flex" }}
       >
         <div className="card">
-          <section className="AskLoginOrSignIn">
+          <section className="AskLoginOrRegister">
             <button
-              id="signin"
+              id="register"
               onClick={() => setFirstTime(true)}
               style={{ textDecoration: firstTime ? "underline" : "none" }}
             >
-              Register
+              New user?
             </button>
 
             <button
@@ -125,13 +126,14 @@ const LogAndSign = () => {
               onClick={() => setFirstTime(false)}
               style={{ textDecoration: !firstTime ? "underline" : "none" }}
             >
-              Log In
+              Old user?
             </button>
           </section>
 
           <section>
             <img src={image} alt="Girls" id="girls-image" />
           </section>
+
           <section>
             <label htmlFor="email">Registered Email: </label>
             <input
@@ -165,24 +167,43 @@ const LogAndSign = () => {
           </section>
 
           <section>
+            <a href="/FeelBeautiful/LoginOrSignIn">Forgot password?</a>
+          </section>
+
+          <section>
             <button id="loginButton" onClick={goforLoginValidation}>
               Log me in
             </button>
           </section>
+
+          <section id="sign-in-using">
+            <label htmlFor="signInWithGoogle">Or continue with:</label>
+
+            <button name="signInWithGoogle">
+              <img src={google} alt="google icon" />
+            </button>
+
+            <button name="signInWithMS">
+              <img src={microSoft} alt="MicroSoft icon" />
+            </button>
+          </section>
         </div>
       </div>
+      {/**
+       *
+       */}
       <div
-        className="signinContainer Container"
-        style={{ display: firstTime ? "flex" : "none" }}
+        className="registerContainer Container"
+        style={{ display: !firstTime ? "none" : "flex" }}
       >
         <div className="card">
-          <section className="AskLoginOrSignIn">
+          <section className="AskLoginOrRegister">
             <button
-              id="signin"
+              id="register"
               onClick={() => setFirstTime(true)}
               style={{ textDecoration: firstTime ? "underline" : "none" }}
             >
-              Register
+              New user?
             </button>
 
             <button
@@ -190,7 +211,7 @@ const LogAndSign = () => {
               onClick={() => setFirstTime(false)}
               style={{ textDecoration: !firstTime ? "underline" : "none" }}
             >
-              Log In
+              Old user?
             </button>
           </section>
 
@@ -201,14 +222,14 @@ const LogAndSign = () => {
           <section>
             <label htmlFor="email">Your Email: </label>
             <input
-              onInput={(e) => setSigninEmail(e.target.value)}
+              onInput={(e) => setLoginEmail(e.target.value)}
               type="email"
               name="email"
               id="input-email"
               placeholder="yourName@gmail.com"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  goForSigninValidation();
+                  RegistrationValidation();
                 }
               }}
             />
@@ -217,27 +238,41 @@ const LogAndSign = () => {
           <section>
             <label htmlFor="pass">Set Password: </label>
             <input
-              onInput={(e) => setSigninPass(e.target.value)}
+              onInput={(e) => setLoginPass(e.target.value)}
               type="password"
               name="password"
               id="input-password"
               placeholder="Secrete Password"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  goForSigninValidation();
+                  RegistrationValidation();
                 }
               }}
             />
           </section>
 
+          <br/>
+          <br/>
+
           <section>
-            <button id="signinButton" onClick={goForSigninValidation}>
+            <button id="signinButton" onClick={RegistrationValidation}>
               Register me
+            </button>
+          </section>
+
+          <section id="sign-in-using">
+            <label htmlFor="signInWithGoogle">Or continue with:</label>
+            <button name="signInWithGoogle">
+              <img src={google} alt="google icon" />{" "}
+            </button>
+
+            <button name="signInWithMS">
+              <img src={microSoft} alt="MicroSoft icon" />
             </button>
           </section>
         </div>
       </div>
-
+      ){/**Now notification section */}
       <div
         className="notification"
         style={{ display: displayNotification ? "block" : "none" }}
@@ -251,7 +286,7 @@ const LogAndSign = () => {
 
         <div
           className="signedIn"
-          style={{ display: signInNotify ? "flex" : "none" }}
+          style={{ display: registeredNotify ? "flex" : "none" }}
         >
           {usersCredenatialsList.length > 0 && (
             <p>

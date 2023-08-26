@@ -51,8 +51,8 @@ const Brand = ({ list, getClickedBrand }) => {
             </h2>
           )
         ) : (
-          brandsWithMoreImages.map((brand) => (
-            <div className="brand-card">
+          brandsWithMoreImages.map((brand,i) => (
+            <div className="brand-card" key={i}>
               <section className="brand-images">
                 {brand.photos.slice(0, 3).map((photo, index) => (
                   <img
