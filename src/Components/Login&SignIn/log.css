@@ -96,6 +96,7 @@
 
   transform: translateY(0px);
   animation: SlideDown 0.5s ease-out;
+  font-family: "Viga", sans-serif;
 }
 @keyframes SlideDown {
   from {

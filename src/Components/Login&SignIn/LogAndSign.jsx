@@ -20,8 +20,8 @@ const LogAndSign = () => {
   const [loginEmail, setLoginEmail] = useState();
   const [loginPass, setLoginPass] = useState();
 
-  const [signinEmail, setSigninEmail] = useState();
-  const [signinPass, setSigninPass] = useState();
+  const [registerMail, setRegisterMail] = useState();
+  const [registerPass, setRegisterPass] = useState();
 
   const [displayNotification, setDisplayNotification] = useState(false);
   const [loggedInNotify, setLoggedinNotify] = useState(false);
@@ -38,17 +38,17 @@ const LogAndSign = () => {
   }
 
   function RegistrationValidation() {
-    !signinEmail ||
-    !signinPass ||
-    !signinEmail.includes("@") ||
-    !signinEmail.includes(".")
+    !registerMail ||
+    !registerPass ||
+    !registerMail.includes("@") ||
+    !registerMail.includes(".")
       ? alert("You did not enter valid EmailID or Password")
       : setUsersCredenatialsInLS();
   }
 
   function setUsersCredenatialsInLS() {
     let alreadyRegistered = usersCredenatialsList.find((user) => {
-      return user.emailID === signinEmail;
+      return user.emailID === registerMail;
     });
 
     if (alreadyRegistered) {
@@ -56,7 +56,7 @@ const LogAndSign = () => {
     } else {
       setUsersCredenatialsList((prev) => {
         return [
-          { key: uniqueKey(), emailID: signinEmail, password: signinPass },
+          { key: uniqueKey(), emailID: registerMail, password: registerPass },
           ...prev,
         ];
       });
@@ -222,7 +222,7 @@ const LogAndSign = () => {
           <section>
             <label htmlFor="email">Your Email: </label>
             <input
-              onInput={(e) => setLoginEmail(e.target.value)}
+              onInput={(e) => setRegisterMail(e.target.value)}
               type="email"
               name="email"
               id="input-email"
@@ -238,7 +238,7 @@ const LogAndSign = () => {
           <section>
             <label htmlFor="pass">Set Password: </label>
             <input
-              onInput={(e) => setLoginPass(e.target.value)}
+              onInput={(e) => setRegisterPass(e.target.value)}
               type="password"
               name="password"
               id="input-password"
@@ -251,8 +251,8 @@ const LogAndSign = () => {
             />
           </section>
 
-          <br/>
-          <br/>
+          <br />
+          <br />
 
           <section>
             <button id="signinButton" onClick={RegistrationValidation}>
@@ -263,7 +263,7 @@ const LogAndSign = () => {
           <section id="sign-in-using">
             <label htmlFor="signInWithGoogle">Or continue with:</label>
             <button name="signInWithGoogle">
-              <img src={google} alt="google icon" />{" "}
+              <img src={google} alt="google icon" />
             </button>
 
             <button name="signInWithMS">
@@ -272,7 +272,10 @@ const LogAndSign = () => {
           </section>
         </div>
       </div>
-      ){/**Now notification section */}
+      )
+      {/**
+       *Now notification section
+       */}
       <div
         className="notification"
         style={{ display: displayNotification ? "block" : "none" }}
