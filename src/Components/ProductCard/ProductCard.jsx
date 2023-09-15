@@ -1,14 +1,17 @@
 import React from "react";
 import "./card.css";
+import { useDispatch } from "react-redux";
+import { setClickedProduct } from "../../Store/Slices/ClickedProductSlice";
 
-const ProductCard = ({ item, getClickedProduct }) => {
+const ProductCard = ({ item }) => {
+  const dispatch = useDispatch();
+ 
   return (
     <React.Fragment>
       <div
         className="product-card"
         onClick={() => {
-          getClickedProduct(item);
-          sessionStorage.setItem("ClickedProduct", JSON.stringify(item));
+          dispatch(setClickedProduct(item));
         }}
       >
         <section className="price">

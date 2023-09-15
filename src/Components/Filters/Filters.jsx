@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./filter.css";
 import useSelectHook from "../../hooks/useSelectHook";
+import { useSelector } from "react-redux";
 
 const Filters = ({
   getSearchInput,
   getFilterInput,
   IconIsClicked /**Coming from AllProducts.jsx */,
-  list /**Coming from App.jsx */,
 }) => {
+  const list = useSelector((state) => {
+    return state.Productslist.data;
+  });
+
   if (!list) return;
 
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -81,9 +85,7 @@ const Filters = ({
               type="search"
               name="product"
               id="search-input"
-              onInput={(e) => {
-                getSearchInput(e.target.value);
-              }}
+              onKeyUp={(e) => getSearchInput( e.target.value)}
             />
           </div>
 
@@ -112,7 +114,6 @@ const Filters = ({
             display: showFilters ? "flex" : "none",
             top: `${topPixel}px`,
           }}
-          onMouseLeave={() => setShowFilters(false)}
         >
           <div id="filtersContainer">
             <section className="brand-input">
@@ -133,9 +134,9 @@ const Filters = ({
               <select {...setType} name="type" id="type-filter">
                 <option value="All">All types</option>
 
-                {types.map((t, i) => (
-                  <option value={t} key={i}>
-                    {t}
+                {types.map((type, i) => (
+                  <option value={type} key={i}>
+                    {type}
                   </option>
                 ))}
               </select>

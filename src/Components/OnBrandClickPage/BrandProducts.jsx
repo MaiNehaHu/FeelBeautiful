@@ -1,54 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./brands.css";
-import { Link } from "react-router-dom";
-import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+
 import ProductCard from "../ProductCard/ProductCard";
+import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 
-//storing in Local Storage from Body component
-//Accessing here
-const Brand_LS_Key = "ClickedBrand";
-function getBrand() {
-  let brand = sessionStorage.getItem(Brand_LS_Key);
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-  if (brand) {
-    return JSON.parse(sessionStorage.getItem(Brand_LS_Key));
-  } else {
-    return [];
-  }
-}
+const BrandProducts = () => {
+  const list = useSelector((state) => {
+    return state.Productslist.data;
+  });
+  const Brands = useSelector((state) => {
+    return state.clickedBrand;
+  });
 
-const BrandProducts = ({ allBrandslist, clickedBrand, getClickedProduct }) => {
-  const [gotClickedBrand, setGotClickedBrand] = useState(clickedBrand);
-
-  //After refreshing
-  useEffect(() => {
-    if (gotClickedBrand === [] || gotClickedBrand.length === 0)
-      setGotClickedBrand(getBrand());
-  }, []);
-
-  let brandToDisplay = allBrandslist.filter(
-    (brand) => brand.brand == gotClickedBrand.brandName && brand.brand !== null
+  let brandToDisplay = list.filter(
+    (brand) => brand.brand == Brands.brandName && brand.brand !== null
   );
 
   function randomPrice() {
-    return Math.ceil(Math.random() * 10);
+    return Math.ceil(Math.random() * 10).toFixed(1);
   }
-  brandToDisplay.map((item) => {
-    let itemPrice =
-      item.price === "0.0" || item.price === null
-        ? `${randomPrice()}.0`
-        : Math.ceil(item.price);
-    let PriceSign = item.price_sign === null ? "$" : item.price_sign;
 
-    item.price_sign = PriceSign;
-    item.price = itemPrice;
+  brandToDisplay = brandToDisplay.map((item) => {
+    const itemPrice =
+      item.price === "0.0" || item.price === null ? randomPrice() : item.price;
+    const PriceSign = item.price_sign || "$";
+
+    return {
+      ...item,
+      price_sign: PriceSign,
+      price: itemPrice,
+    };
   });
 
   return (
     <React.Fragment>
-      <h1 id="brand-name-heading">Brand: {clickedBrand.brandName}</h1>
+      <h1 id="brand-name-heading">Brand: {Brands.brandName}</h1>
       <div id="product-container">
-        {gotClickedBrand.length === 0 || gotClickedBrand === [] ? (
+        {!Brands || Brands.length === 0 ? (
           <div>
             <h1 style={{ fontFamily: "monospace", textAlign: "center" }}>
               Please wait...1 2 3
@@ -57,7 +48,7 @@ const BrandProducts = ({ allBrandslist, clickedBrand, getClickedProduct }) => {
         ) : (
           brandToDisplay.map((item, i) => (
             <Link to={`/Product`} key={i}>
-              <ProductCard item={item} getClickedProduct={getClickedProduct} />
+              <ProductCard item={item} />
             </Link>
           ))
         )}

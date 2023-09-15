@@ -1,11 +1,44 @@
 import React from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Navbar = ({ count }) => {
+const Navbar = ({}) => {
+  const cart = useSelector((state) => {
+    return state.CartList;
+  });
+
+  const userName = useSelector((state) => {
+    return state.LoggedUserDetails;
+  }).userName;
+
+  const loginStatus = useSelector((state) => {
+    return state.LoginStatus;
+  });
+
+  const logInOrSignInStyling = loginStatus
+    ? {
+        display: "none",
+      }
+    : {
+        "@media (maxWidth: 660px)": {
+          display: "none",
+        },
+      };
+
+  const userDashBoardStyling = !loginStatus
+    ? {
+        display: "none",
+      }
+    : {
+        "@media (maxWidth: 660px)": {
+          display: "none",
+        },
+      };
+
   return (
     <React.Fragment>
-      <div id="nav">
+      <header id="nav">
         <section id="logo">
           <Link to="/">Feel Beautiful❤️</Link>
         </section>
@@ -14,14 +47,26 @@ const Navbar = ({ count }) => {
           <Link to="/">Home🏡</Link>
 
           <Link to="/Cart">
-            Cart🛒<sup id="cartCount">{count}</sup>
+            Cart🛒<sup id="cartCount">{cart.length}</sup>
           </Link>
 
-          <Link to="/LoginOrSignIn" id="logInOrSignIn">
+          <Link
+            style={logInOrSignInStyling}
+            to="/LoginOrSignIn"
+            id="logInOrSignIn"
+          >
             Sign in/Log in🔏
           </Link>
+
+          <Link
+            style={userDashBoardStyling}
+            to={`/UserDashBoard/:${userName}`}
+            id="logInOrSignIn"
+          >
+            Dashboard <i className="fa fa-user" aria-hidden="true"></i>
+          </Link>
         </section>
-      </div>
+      </header>
     </React.Fragment>
   );
 };

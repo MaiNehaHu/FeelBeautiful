@@ -84,6 +84,8 @@
   gap: 2px;
 }
 .colors > div {
+  cursor: pointer;
+  
   height: 30px;
   width: 30px;
   margin: 3px 0px;

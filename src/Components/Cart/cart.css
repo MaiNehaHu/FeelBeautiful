@@ -1,6 +1,7 @@
 .cart-container {
   width: 100%;
-  min-height: 100%;
+  min-height: 90vh;
+  min-height: 90dvh;
   padding: 2% 5%;
 }
 

@@ -1,0 +1,13 @@
+### After getting UsersList API. What u do is.
+
+### Just store the user's user ID in localStorage and fetch the data of Userslist and CartList according to the user ID.
+
+### In App.jsx call the API and get Userslistand CartList.
+
+### filter the userID , fetch the data and show on Dashboard.
+
+### { userID:"Be23au77ty",
+
+### userDetails:{name:"Neha", email: nehakumari@gmai.com },
+
+### cartList:{...products} }

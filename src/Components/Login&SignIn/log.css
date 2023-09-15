@@ -1,10 +1,12 @@
 .Container {
   width: 100%;
-  height: 86vh;
-  height: 86dvh;
+  height: 90vh;
+  height: 90dvh;
+
+  margin-top: 20px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   background-color: white;
@@ -16,20 +18,24 @@
   padding: 1% 0%;
 
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  
   flex-direction: column;
 
-  border-radius: 2rem;
+  border-radius: 1rem;
   background-color: rgb(253, 97, 123);
 }
 
 .Container > .card > section {
   margin: 10px 0px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
 }
 
 #input-email,
-#input-password {
+#input-password,
+#input-userName {
   padding: 5px;
   border-radius: 10px;
   font-size: medium;
@@ -107,23 +113,6 @@
   }
 }
 
-.loginedIn > p,
-.signedIn > p {
-  margin: 60px 10px 0px 10px;
-  padding: 20px 15px;
-  border-radius: 1rem;
-
-  color: blue;
-  text-align: center;
-  font-size: larger;
-
-  pointer-events: none;
-  user-select: none;
-
-  background-color: gold;
-  box-shadow: 2px 2px 1px goldenrod;
-}
-
 #sign-in-using {
   width: 100%;
   height: 100%;
@@ -157,7 +146,8 @@
   }
 
   #input-email,
-  #input-password {
+  #input-password,
+  #input-userName {
     padding: 3px;
   }
 }
@@ -182,22 +172,22 @@
   #girls-image {
     width: 150px;
   }
+
+  .Container > .card > section {
+    margin: 7px 0px;
+  }
 }
 
 @media screen and (max-width: 460px) {
   #input-email,
-  #input-password {
+  #input-password,
+  #input-userName {
     padding: 3px;
   }
 
   #loginButton,
   #signinButton {
     padding: 5px 25px;
-  }
-
-  .loginedIn > p,
-  .signedIn > p {
-    padding: 10px 10px;
   }
 
   #sign-in-using > button {
@@ -214,12 +204,6 @@
   #login,
   #register {
     margin: 3px 0px;
-    font-size: medium;
-  }
-
-  .loginedIn > p,
-  .signedIn > p {
-    border-radius: 0.5rem;
     font-size: medium;
   }
 }

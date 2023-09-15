@@ -3,10 +3,11 @@
   cursor: default;
   user-select: none;
   height: fit-content;
+
   z-index: 3;
   padding: 0.5% 5%;
 
-  position: fixed;
+  position: sticky;
   bottom: 0;
 
   display: flex;

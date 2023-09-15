@@ -97,7 +97,7 @@
 
 @media screen and (max-width: 380px) {
   .product-card {
-    width: 100px;
+    width: 110px;
     margin: 10px;
   }
   .product-card > section > img {
@@ -119,6 +119,6 @@
   .product-card > section > img,
   .name > p,
   .brand > p {
-    margin: 0px 2px;
+    margin: 5px 0px;
   }
 }

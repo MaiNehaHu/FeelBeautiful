@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 
 const TotalPrice = ({ cartList }) => {
   const [linkTo, setLinkTo] = useState("/Cart");
+  
   let priceList = [];
+
   cartList.map((item) => {
     return priceList.push(item.price * item.count);
   });
 
   /**Using reduce method to get sum of the products amount */
-  let finalPriceToPay = priceList.reduce((curr, acc) => curr + acc, 0);
+  let finalPriceToPay = priceList
+    .reduce((curr, acc) => curr + acc, 0)
+    .toFixed(2);
 
   function checkNumofItems() {
     cartList.length === 0

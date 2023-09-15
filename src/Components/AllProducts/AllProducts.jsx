@@ -1,36 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./body.css";
-import { Link } from "react-router-dom";
-import Image from "../../Images/noSearchResult.png";
-import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+
 import Filters from "../Filters/Filters";
+import Image from "../../Images/noSearchResult.png";
 import ProductCard from "../ProductCard/ProductCard";
+import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 
-function getList() {
-  let list = localStorage.getItem("Total-list");
+import { fetchProductsList } from "../../Store/Slices/ProductsListSlice";
 
-  if (list) {
-    return JSON.parse(localStorage.getItem("Total-list"));
-  } else {
-    return [];
-  }
-}
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-const AllProducts = ({ getClickedProduct, list }) => {
-  const [productsList, setProductsList] = useState(getList());
+const AllProducts = ({}) => {
+  const dispatch = useDispatch();
+
+  const Productlist = useSelector((state) => {
+    return state.Productslist.data;
+  });
+
+  const [list, setlist] = useState(Productlist);
   const [displayNotFoundImg, setDisplayNotFoundImg] = useState(false);
 
   /**Search Result list */
   function randomPrice() {
-    return Math.ceil(Math.random() * 10);
+    return Math.ceil(Math.random() * 10).toFixed(1);
   }
 
   //Removing all glitches e.g. null values, 0 price of products
-
-  productsList.map((item) => {
+  const updatedList = list.map((item) => {
     const itemPrice =
       item.price === "0.0" || item.price === null
-        ? `${randomPrice()}.0`
+        ? `${randomPrice()}`
         : item.price;
 
     const PriceSign = item.price_sign === null ? "$" : item.price_sign;
@@ -38,38 +38,45 @@ const AllProducts = ({ getClickedProduct, list }) => {
       item.product_type === null ? "Not known" : item.product_type;
     const productBrand = item.brand === null ? "Brand not known" : item.brand;
 
-    item.price = itemPrice;
-    item.price_sign = PriceSign;
-    item.product_type = productType;
-    item.brand = productBrand;
+    // Create a new object with the updated properties
+    return {
+      ...item,
+      price: itemPrice,
+      price_sign: PriceSign,
+      product_type: productType,
+      brand: productBrand,
+    };
   });
 
   //Getting search input from input field and setting the list
   function getSearchInput(input) {
     input = input.toLowerCase();
 
-    if (input === "") {
-      setProductsList(list);
-    } else {
-      const newList = [...productsList];
+    dispatch(fetchProductsList());
 
-      const searchResult = newList.filter((item) => {
+    if (input === "") {
+      setlist(Productlist);
+    } else {
+      const searchResult = Productlist.filter((item) => {
         return (
           item.name.includes(input) ||
-          item.brand.includes(input) ||
-          item.product_type.includes(input)
+          (item.brand && item.brand.includes(input)) ||
+          item.product_type.includes(input) ||
+          (item.price && item.price.includes(input)) ||
+          (item.description && item.description.includes(input))
         );
       });
 
-      setProductsList(searchResult);
+      setlist(searchResult);
     }
   }
 
   function getFilterInput(parameters) {
     const Filter = [...parameters];
-    const newList = [...productsList];
 
-    const filterResult = newList.filter((item) => {
+    dispatch(fetchProductsList());
+
+    const filterResult = Productlist.filter((item) => {
       return Filter.every((filter) => {
         const { brand, product_type, price } = filter;
 
@@ -91,22 +98,21 @@ const AllProducts = ({ getClickedProduct, list }) => {
       });
     });
 
-    setProductsList(filterResult);
+    setlist(filterResult);
   }
 
   function IconIsClicked() {
-    setProductsList(list);
+    setlist(Productlist);
   }
 
   useEffect(() => {
-    if (productsList.length === 0) setDisplayNotFoundImg(true);
+    if (list.length === 0) setDisplayNotFoundImg(true);
     else setDisplayNotFoundImg(false);
-  }, [productsList]);
+  }, [list]);
 
   return (
     <React.Fragment>
       <Filters
-        list={list}
         getSearchInput={getSearchInput}
         getFilterInput={getFilterInput}
         IconIsClicked={IconIsClicked}
@@ -115,9 +121,9 @@ const AllProducts = ({ getClickedProduct, list }) => {
       <h1 className="heading">All Products</h1>
 
       <div id="product-container">
-        {productsList.map((item, i) => (
-          <Link to={`/Product/${item.name}`} key={i}>
-            <ProductCard item={item} getClickedProduct={getClickedProduct} />
+        {updatedList.map((item, i) => (
+          <Link to={`/Product`} key={i}>
+            <ProductCard item={item} />
           </Link>
         ))}
 

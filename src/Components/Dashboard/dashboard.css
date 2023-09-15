@@ -1,0 +1,103 @@
+.dashboard-container {
+  width: 100%;
+  height: 90vh;
+  height: 90dvh;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  font-family: "Righteous", cursive;
+}
+
+.dashBoard {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.leftSection {
+  display: flex;
+}
+
+.rightSection {
+  height: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#userImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#userImage > img {
+  width: 150px;
+  height: 150px;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  pointer-events: none;
+  user-select: none;
+  border: 3px solid black;
+  background-color: gainsboro;
+}
+
+#uploadImageLabel:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#logOutBtn {
+  color: white;
+  cursor: pointer;
+
+  font-size: large;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: crimson;
+
+  font-family: "Righteous", cursive;
+}
+
+#mailID {
+  word-break: break-all;
+}
+
+@media screen and (max-width: 700px) {
+  .dashBoard {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  #userImage > img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #userName h1 {
+    font-size: medium;
+  }
+
+  #userID,
+  #mailID {
+    font-size: small;
+  }
+
+  #logOutBtn {
+    font-size: small;
+  }
+}

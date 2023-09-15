@@ -175,6 +175,9 @@
     width: 80px;
     height: 100px;
   }
+  .brand-name > a > p {
+    font-size: small;
+  }
 
   .brand-name {
     font-size: medium;
@@ -190,6 +193,9 @@
   .brand-card > section > img {
     width: 60px;
     height: 80px;
+  }
+  .brand-name > a > p {
+    font-size: smaller;
   }
 
   .brand-name {
