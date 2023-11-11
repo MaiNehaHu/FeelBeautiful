@@ -12,26 +12,22 @@ const Navbar = ({}) => {
     return state.LoggedUserDetails;
   }).userName;
 
-  const loginStatus = useSelector((state) => {
-    return state.LoginStatus;
-  });
-
-  const logInOrSignInStyling = loginStatus
+  const logInStyling = userName
     ? {
         display: "none",
       }
     : {
-        "@media (maxWidth: 660px)": {
+        "@media (maxWidth: 600px)": {
           display: "none",
         },
       };
 
-  const userDashBoardStyling = !loginStatus
+  const userDashBoardStyling = !userName
     ? {
         display: "none",
       }
     : {
-        "@media (maxWidth: 660px)": {
+        "@media (maxWidth: 600px)": {
           display: "none",
         },
       };
@@ -50,18 +46,14 @@ const Navbar = ({}) => {
             Cart🛒<sup id="cartCount">{cart.length}</sup>
           </Link>
 
-          <Link
-            style={logInOrSignInStyling}
-            to="/LoginOrSignIn"
-            id="logInOrSignIn"
-          >
-            Sign in/Log in🔏
+          <Link style={logInStyling} to="/LogIn" id="logIn">
+            Log in🔏
           </Link>
 
           <Link
             style={userDashBoardStyling}
             to={`/UserDashBoard/:${userName}`}
-            id="logInOrSignIn"
+            id="logIn"
           >
             Dashboard <i className="fa fa-user" aria-hidden="true"></i>
           </Link>

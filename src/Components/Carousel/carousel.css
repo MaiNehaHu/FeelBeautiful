@@ -36,20 +36,36 @@
   font-family: "Permanent Marker", cursive;
 
   background: linear-gradient(
-    to right bottom,
-    #7700ff,
-    #7700ff,
-    red,
+    120deg,
+    violet,
+    indigo,
     blue,
-    pink,
-    pink
+    green,
+    yellow,
+    orange,
+    red,
+    violet,
+    indigo,
+    blue
   );
-  background-size: 100%;
+  background-size: 500%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+
+  animation: Rainbow 10s linear infinite forwards;
 }
+
+@keyframes Rainbow {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
 .Message > p {
   font-size: 4rem;
 }

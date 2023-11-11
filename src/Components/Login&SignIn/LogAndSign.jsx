@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./log.css";
+import "./style.css";
 import image from "../../Images/forLoginPage.png";
 import google from "../../Images/google.png";
 import microSoft from "../../Images/ms.png";
@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { takeInUser } from "../../Store/Slices/LoginUserSlice";
-import { setLoginStatus } from "../../Store/Slices/LoginStatusSlice";
 import { setFirstTime } from "../../Store/Slices/firstTimeUserStatusSlice";
 import { setLoggedUserDetails } from "../../Store/Slices/LoggedUserDetailsSlice";
 
@@ -36,7 +35,7 @@ const LogAndSign = () => {
     !registerPass ||
     !registerMail.includes("@") ||
     !registerMail.includes(".")
-      ? alert("You did not enter valid ")
+      ? alert("You did not enter valid inputs")
       : dispatch(
           takeInUser({
             nameInput: nameInput,
@@ -57,7 +56,6 @@ const LogAndSign = () => {
 
     if (userToLogin) {
       if (userToLogin.password === loginPass) {
-        dispatch(setLoginStatus(true));
 
         dispatch(setLoggedUserDetails({ userToLogin }));
 

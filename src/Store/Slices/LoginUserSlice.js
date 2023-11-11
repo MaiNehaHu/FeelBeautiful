@@ -12,9 +12,9 @@ function getUsersCredentialsList() {
 }
 
 function uniqueKey() {
-  return `Be${Math.ceil(Math.random() * Math.pow(10, 4))}au${Math.ceil(
+  return `${Math.ceil(Math.random() * Math.pow(10, 4))}FB${Math.ceil(
     Math.random() * Math.pow(10, 4)
-  )}ty`;
+  )}`;
 }
 
 const LoginUserSlice = createSlice({
@@ -45,7 +45,7 @@ const LoginUserSlice = createSlice({
 
         state.push(newUser);
 
-        alert("Now, you can login to your account")
+        alert("Now, you can login to your account");
       }
     },
   },

@@ -21,7 +21,7 @@ const CartListSlice = createSlice({
   initialState: getCartList(),
   reducers: {
     addToCart(state, action) {
-      let { productToDisplay, selectedColor } = action.payload;
+      let { productDetails, selectedColor } = action.payload;
 
       selectedColor = !selectedColor
         ? {
@@ -34,7 +34,7 @@ const CartListSlice = createSlice({
       console.log();
       let sameOne = state.find(
         (item) =>
-          item.name === productToDisplay.name &&
+          item.name === productDetails.name &&
           item.color.hex_value === selectedColor.hex_value
       );
 
@@ -43,8 +43,9 @@ const CartListSlice = createSlice({
           key: uniqueKey(),
           count: 1,
           color: selectedColor,
-          ...productToDisplay,
+          ...productDetails,
         };
+        console.log(newItem);
 
         const updatedList = [newItem, ...state];
 

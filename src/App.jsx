@@ -2,27 +2,25 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import OnClickPage from "./Components/OnProductClickPage/OnClickPage";
+import OnProductClickPage from "./Components/OnProductClickPage/OnProductClickPage";
 import Cart from "./Components/Cart/Cart";
 import Navbar from "./Components/NavBar/Navbar";
 import Carousel from "./Components/Carousel/Carousel";
 import Brand from "./Components/Body/Brand";
 import AllProducts from "./Components/AllProducts/AllProducts";
-import BrandProducts from "./Components/OnBrandClickPage/brandProducts";
+import OnBrandClickPage from "./Components/OnBrandClickPage/OnBrandClickPage";
 import ErrorPage from "./Components/404ErrorPage.jsx/ErrorPage";
 import NavigateToAllProd from "./Components/NavigateToAllProducts/NavigateToAllProd";
-import LogAndSign from "./Components/Login&SignIn/LogAndSign";
+import LogInPage from "./Components/Login&SignIn/LogInPage/LogInPage";
+import SignInPage from "./Components/Login&SignIn/SignInPage/SignInPage";
 import UserDashboard from "./Components/Dashboard/UserDashboard";
 
 import { fetchProductsList } from "./Store/Slices/ProductsListSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  let userName;
   const dispatch = useDispatch();
-
-  const userName = useSelector((state) => {
-    return state.LoggedUserDetails;
-  }).userName;
 
   /**Getting product list from API*/
   function init() {
@@ -63,15 +61,16 @@ function App() {
           path={`/Brand`}
           element={
             <React.Fragment>
-              <BrandProducts />
+              <OnBrandClickPage />
             </React.Fragment>
           }
         />
+        
         <Route
           path={`/Product`}
           element={
             <React.Fragment>
-              <OnClickPage />
+              <OnProductClickPage />
             </React.Fragment>
           }
         />
@@ -86,10 +85,19 @@ function App() {
         />
 
         <Route
-          path="/LoginOrSignIn"
+          path="/LogIn"
           element={
             <React.Fragment>
-              <LogAndSign />
+              <LogInPage />
+            </React.Fragment>
+          }
+        />
+
+        <Route
+          path="/SignIn"
+          element={
+            <React.Fragment>
+              <SignInPage />
             </React.Fragment>
           }
         />

@@ -1,5 +1,5 @@
 import React from "react";
-import "./brands.css";
+import "./OnBrandClickPage.css";
 
 import ProductCard from "../ProductCard/ProductCard";
 import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
@@ -7,7 +7,7 @@ import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const BrandProducts = () => {
+const OnBrandClickPage = () => {
   const list = useSelector((state) => {
     return state.Productslist.data;
   });
@@ -26,11 +26,9 @@ const BrandProducts = () => {
   brandToDisplay = brandToDisplay.map((item) => {
     const itemPrice =
       item.price === "0.0" || item.price === null ? randomPrice() : item.price;
-    const PriceSign = item.price_sign || "$";
 
     return {
       ...item,
-      price_sign: PriceSign,
       price: itemPrice,
     };
   });
@@ -58,4 +56,4 @@ const BrandProducts = () => {
   );
 };
 
-export default BrandProducts;
+export default OnBrandClickPage;

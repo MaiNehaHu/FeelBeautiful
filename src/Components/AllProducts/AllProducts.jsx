@@ -33,7 +33,6 @@ const AllProducts = ({}) => {
         ? `${randomPrice()}`
         : item.price;
 
-    const PriceSign = item.price_sign === null ? "$" : item.price_sign;
     const productType =
       item.product_type === null ? "Not known" : item.product_type;
     const productBrand = item.brand === null ? "Brand not known" : item.brand;
@@ -42,7 +41,6 @@ const AllProducts = ({}) => {
     return {
       ...item,
       price: itemPrice,
-      price_sign: PriceSign,
       product_type: productType,
       brand: productBrand,
     };

@@ -1,7 +1,7 @@
 .Container {
   width: 100%;
-  height: 90vh;
-  height: 90dvh;
+  min-height: 90vh;
+  min-height: 90dvh;
 
   margin-top: 20px;
 
@@ -30,7 +30,8 @@
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #input-email,

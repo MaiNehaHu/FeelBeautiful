@@ -1,11 +1,11 @@
 import React from "react";
 import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { resetUserDetails } from "../../Store/Slices/LoggedUserDetailsSlice";
-import { setLoginStatus } from "../../Store/Slices/LoginStatusSlice";
 import { updateUserImage } from "../../Store/Slices/LoggedUserDetailsSlice";
-import { useNavigate } from "react-router-dom";
+
 
 const UserDashboard = () => {
   const dispatch = useDispatch();
@@ -56,17 +56,12 @@ const UserDashboard = () => {
               <p>Mail: {userDetails.mailID}</p>
             </section>
 
-            <section id="address">
-              <p>Edit address:</p>
-            </section>
-
             <section>
               <button
                 id="logOutBtn"
                 onClick={() => {
-                  dispatch(setLoginStatus(false));
                   dispatch(resetUserDetails());
-                  navigateTo("/LogInOrSignIn");
+                  navigateTo("/LogIn");
                 }}
               >
                 Log Out

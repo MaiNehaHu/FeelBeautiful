@@ -6,9 +6,7 @@ import clickedBrandSlice from "./Slices/ClickedBrandSlice";
 import ClickedProductSlice from "./Slices/ClickedProductSlice";
 import selectedProductColorSlice from "./Slices/SelectedProductColorSlice";
 import LoginUserSlice from "./Slices/LoginUserSlice";
-import LoginStatusSlice from "./Slices/LoginStatusSlice";
 import LoggedUserDetailsSlice from "./Slices/LoggedUserDetailsSlice";
-import firstTimeUserStatusSlice from "./Slices/firstTimeUserStatusSlice";
 
 /**This is the store for all slices */
 const store = configureStore({
@@ -25,11 +23,7 @@ const store = configureStore({
 
     LoginUser: LoginUserSlice,
 
-    LoginStatus: LoginStatusSlice,
-
     LoggedUserDetails: LoggedUserDetailsSlice,
-
-    firstTimeUserStatus: firstTimeUserStatusSlice,
     /**Access of all micro reducers. */
   },
 });

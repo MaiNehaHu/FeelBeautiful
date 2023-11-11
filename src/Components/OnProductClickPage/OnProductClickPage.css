@@ -37,7 +37,7 @@
 #selectedProductName {
   user-select: none;
   color: black;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-family: "Viga", sans-serif;
 }
 
@@ -107,6 +107,8 @@
 @media screen and (max-width: 780px) {
   #selectedProductName {
     font-size: 2.8rem;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
 
@@ -159,6 +161,8 @@
 
   #selectedProductName {
     font-size: xx-large;
+    word-wrap: break-word;
+    word-break: keep-all;
   }
 
   #selectedProductPrice {

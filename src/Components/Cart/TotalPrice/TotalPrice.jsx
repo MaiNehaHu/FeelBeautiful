@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./total.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+let key = "Logged User";
+function loggedUserStatus() {
+  let details = localStorage.getItem(key);
+
+  return details ? true : false;
+}
 
 const TotalPrice = ({ cartList }) => {
-  const [linkTo, setLinkTo] = useState("/Cart");
-  
+  const navigateTo = useNavigate();
+
+  const logInStatus = loggedUserStatus();
+
   let priceList = [];
 
   cartList.map((item) => {
@@ -19,7 +28,11 @@ const TotalPrice = ({ cartList }) => {
   function checkNumofItems() {
     cartList.length === 0
       ? alert("Add something to buy")
-      : setLinkTo("/LoginOrSignIn");
+      : logInStatus
+      ? alert(
+          "We haven't integrated payment right now. Hope you liked our website"
+        )
+      : navigateTo("/LoginOrSignIn");
   }
 
   return (
@@ -28,7 +41,7 @@ const TotalPrice = ({ cartList }) => {
         <p>Total Items in Cart: {cartList.length}</p>
 
         <button onClick={checkNumofItems}>
-          <Link to={linkTo}>Pay💸 ${finalPriceToPay}</Link>
+          <Link>Pay💸 ${finalPriceToPay}</Link>
         </button>
       </div>
     </React.Fragment>

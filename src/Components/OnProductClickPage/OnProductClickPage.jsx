@@ -1,4 +1,4 @@
-import "./click.css";
+import "./OnProductClickPage.css";
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -6,26 +6,26 @@ import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
 import { changeColor } from "../../Store/Slices/SelectedProductColorSlice";
 import { addToCart } from "../../Store/Slices/CartListSlice";
 
-const OnClickPage = ({}) => {
+const OnProductClickPage = ({}) => {
   const dispatch = useDispatch();
 
-  const productToDisplay = useSelector((state) => {
+  const productDetails = useSelector((state) => {
     return state.ClickedProduct;
   });
 
-  const updatedProduct = { ...productToDisplay };
+  const ProductToDisplay = { ...productDetails };
 
   const selectedColor = useSelector((state) => {
     return state.selectedProductColor;
   });
-
+  
   /**Giving border to selected and not selected color */
   if (
     selectedColor !== null &&
-    productToDisplay.product_colors &&
-    productToDisplay.product_colors.length > 0
+    productDetails.product_colors &&
+    productDetails.product_colors.length > 0
   ) {
-    updatedProduct.product_colors = updatedProduct.product_colors.map(
+    ProductToDisplay.product_colors = ProductToDisplay.product_colors.map(
       (colors) => ({
         ...colors,
         border: "3px solid white",
@@ -33,7 +33,7 @@ const OnClickPage = ({}) => {
     );
 
     // Setting black border to the selected color
-    let clickedColor = updatedProduct.product_colors.find(
+    let clickedColor = ProductToDisplay.product_colors.find(
       (Procolor) => Procolor.hex_value === selectedColor.hex_value
     );
 
@@ -43,12 +43,12 @@ const OnClickPage = ({}) => {
   }
 
   useEffect(() => {
-    dispatch(changeColor(updatedProduct.product_colors[0]));
+    dispatch(changeColor(ProductToDisplay.product_colors[0]));
   }, []);
 
   return (
     <React.Fragment>
-      {!productToDisplay ? (
+      {!productDetails ? (
         <h1 style={{ fontFamily: "monospace", textAlign: "center" }}>
           Please wait...1 2 3
         </h1>
@@ -56,24 +56,24 @@ const OnClickPage = ({}) => {
         <div className="product-details-onClick">
           <div id="selectedProductImage">
             <img
-              src={updatedProduct.api_featured_image}
-              alt={updatedProduct.name}
+              src={ProductToDisplay.api_featured_image}
+              alt={ProductToDisplay.name}
             />
           </div>
 
           <div id="selectedProductDetails">
             <section>
               <p id="selectedProductName">
-                {updatedProduct.name.toUpperCase()}
+                {ProductToDisplay.name.toUpperCase()}
               </p>
-              <p id="productType">Type: {updatedProduct.product_type}</p>
-              <p id="selectedProductBrand">Brand: {updatedProduct.brand}</p>
+              <p id="productType">Type: {ProductToDisplay.product_type}</p>
+              <p id="selectedProductBrand">Brand: {ProductToDisplay.brand}</p>
             </section>
 
             <section id="selectedProductPrice">
               <p>
-                <span>{updatedProduct.price_sign}</span>
-                <span>{updatedProduct.price}</span>
+                <span>{ProductToDisplay.price_sign} </span>
+                <span>{ProductToDisplay.price}</span>
               </p>
             </section>
 
@@ -82,10 +82,10 @@ const OnClickPage = ({}) => {
                 <summary style={{ cursor: "pointer" }}>
                   Details of product
                 </summary>
-                <p>{updatedProduct.description}</p>
+                <p>{ProductToDisplay.description}</p>
 
                 <div className="tags">
-                  {updatedProduct.tag_list.map((tag, i) => (
+                  {ProductToDisplay.tag_list.map((tag, i) => (
                     <p key={i}>#{tag}</p>
                   ))}
                 </div>
@@ -93,8 +93,8 @@ const OnClickPage = ({}) => {
             </section>
 
             <section className="colors">
-              {updatedProduct.product_colors
-                ? updatedProduct.product_colors.map((color, i) => (
+              {ProductToDisplay.product_colors
+                ? ProductToDisplay.product_colors.map((color, i) => (
                     <div
                       key={i}
                       style={{
@@ -114,7 +114,7 @@ const OnClickPage = ({}) => {
                 onClick={() => {
                   dispatch(
                     addToCart({
-                      productToDisplay: productToDisplay,
+                      productDetails: productDetails,
                       selectedColor: selectedColor,
                     })
                   );
@@ -132,4 +132,4 @@ const OnClickPage = ({}) => {
   );
 };
 
-export default OnClickPage;
+export default OnProductClickPage;

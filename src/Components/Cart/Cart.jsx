@@ -31,8 +31,7 @@ const Cart = ({}) => {
               <p className="product-name">{item.name}</p>
 
               <p className="price-of-item">
-                {item.price_sign}
-                {item.price}
+                Rs. {item.color.price}
               </p>
             </section>
 
