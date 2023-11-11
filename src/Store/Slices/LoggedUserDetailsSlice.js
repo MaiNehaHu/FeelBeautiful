@@ -8,7 +8,7 @@ function getUserDetails() {
   if (details) {
     return JSON.parse(details);
   } else {
-    return { userName: "userName" };
+    return { userName: null };
   }
 }
 

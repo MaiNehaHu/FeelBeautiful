@@ -47,7 +47,7 @@ const Navbar = ({}) => {
           </Link>
 
           <Link style={logInStyling} to="/LogIn" id="logIn">
-            Log in🔏
+            Get in🔏
           </Link>
 
           <Link

@@ -19,7 +19,10 @@ import { fetchProductsList } from "./Store/Slices/ProductsListSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  let userName;
+  const userName = useSelector((state) => {
+    return state.LoggedUserDetails;
+  }).userName;
+
   const dispatch = useDispatch();
 
   /**Getting product list from API*/
