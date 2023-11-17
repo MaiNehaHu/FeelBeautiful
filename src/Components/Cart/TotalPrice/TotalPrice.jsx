@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function loggedUserStatus() {
   let details = localStorage.getItem("Logged User");
-  return details.length <= 2 ? false : true;
+  return !details || details.length <= 2 ? false : true;
 }
 
 const TotalPrice = ({ cartList }) => {

@@ -103,7 +103,7 @@ const LogInPage = () => {
           </section>
 
           <section>
-            <a href="/FeelBeautiful/LoginOrSignIn">Forgot password?</a>
+            <a href="#">Forgot password?</a>
           </section>
 
           <section>
