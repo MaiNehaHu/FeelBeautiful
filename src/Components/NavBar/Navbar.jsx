@@ -16,21 +16,13 @@ const NavBar = ({}) => {
     ? {
         display: "none",
       }
-    : {
-        "@media (maxWidth: 600px)": {
-          display: "none",
-        },
-      };
+    : {};
 
   const userDashBoardStyling = !userName
     ? {
         display: "none",
       }
-    : {
-        "@media (maxWidth: 600px)": {
-          display: "none",
-        },
-      };
+    : {};
 
   return (
     <React.Fragment>
@@ -46,14 +38,14 @@ const NavBar = ({}) => {
             Cart🛒<sup id="cartCount">{cart.length}</sup>
           </Link>
 
-          <Link style={SignInStyling} to="/SignIn" id="logIn">
+          <Link style={SignInStyling} to="/SignIn" id="signIn">
             Get in🔏
           </Link>
 
           <Link
             style={userDashBoardStyling}
             to={`/UserDashBoard/:${userName}`}
-            id="logIn"
+            id="signIn"
           >
             Dashboard <i className="fa fa-user" aria-hidden="true"></i>
           </Link>

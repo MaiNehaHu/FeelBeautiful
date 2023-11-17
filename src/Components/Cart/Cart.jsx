@@ -31,7 +31,8 @@ const Cart = ({}) => {
               <p className="product-name">{item.name}</p>
 
               <p className="price-of-item">
-                Rs. {item.color.price}
+                {item.price_sign}
+                {item.price}
               </p>
             </section>
 
@@ -56,7 +57,7 @@ const Cart = ({}) => {
 
               <div className="calculated-price">
                 {item.price_sign}
-                {(item.price * item.count).toFixed(2)}
+                {(item.price * item.count).toFixed(1)}
               </div>
 
               <i

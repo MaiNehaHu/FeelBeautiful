@@ -72,8 +72,8 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  #logIn {
+@media screen and (max-width: 630px) {
+  #signIn {
     display: none;
   }
 }
