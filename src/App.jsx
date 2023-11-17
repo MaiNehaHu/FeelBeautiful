@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import OnProductClickPage from "./Components/OnProductClickPage/OnProductClickPage";
 import Cart from "./Components/Cart/Cart";
-import Navbar from "./Components/NavBar/Navbar";
+import NavBar from "./Components/NavBar/NavBar";
 import Carousel from "./Components/Carousel/Carousel";
 import Brand from "./Components/Brand/Brand";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import OnBrandClickPage from "./Components/OnBrandClickPage/OnBrandClickPage";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
-import NavigateToAllProd from "./Components/NavigateToAllProducts/NavigateToAllProd";
+import NavigateToAllProducts from "./Components/NavigateToAllProducts/NavigateToAllProducts";
 import LogInPage from "./Components/Login&SignIn/LogInPage/LogInPage";
 import SignInPage from "./Components/Login&SignIn/SignInPage/SignInPage";
 import UserDashboard from "./Components/Dashboard/UserDashboard";
@@ -36,13 +36,13 @@ function App() {
 
   return (
     <BrowserRouter basename="/FeelBeautiful">
-      <Navbar />
+      <NavBar />
       <Routes>
         <Route
           path="/"
           element={
             <React.Fragment>
-              <NavigateToAllProd />
+              <NavigateToAllProducts />
               <Carousel />
               <Brand />
             </React.Fragment>

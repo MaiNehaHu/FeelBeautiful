@@ -1,9 +1,9 @@
 import React from "react";
-import "./nav.css";
+import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Navbar = ({}) => {
+const NavBar = ({}) => {
   const cart = useSelector((state) => {
     return state.CartList;
   });
@@ -63,4 +63,4 @@ const Navbar = ({}) => {
   );
 };
 
-export default Navbar;
+export default NavBar;

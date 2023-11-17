@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./filter.css";
+import "./Filters.css";
 import useSelectHook from "../../hooks/useSelectHook";
 import { useSelector } from "react-redux";
 

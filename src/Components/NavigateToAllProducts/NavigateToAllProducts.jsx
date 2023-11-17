@@ -1,8 +1,8 @@
 import React from "react";
-import "./navigate.css";
+import "./NavigateToAllProducts.css";
 import { Link } from "react-router-dom";
 
-const NavigateToAllProd = () => {
+const NavigateToAllProducts = () => {
   return (
     <React.Fragment>
       <div className="navigator-container">
@@ -12,4 +12,4 @@ const NavigateToAllProd = () => {
   );
 };
 
-export default NavigateToAllProd;
+export default NavigateToAllProducts;
