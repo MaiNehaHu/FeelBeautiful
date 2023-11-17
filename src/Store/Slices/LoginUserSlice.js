@@ -24,10 +24,10 @@ const LoginUserSlice = createSlice({
   
   reducers: {
     takeInUser(state, action) {
-      const { nameInput, registerMail, registerPass } = action.payload;
+      const { userName, mailID, password } = action.payload;
 
       let alreadyRegistered = state.find((user) => {
-        return user.mailID === registerMail;
+        return user.mailID === mailID;
       });
 
       if (alreadyRegistered) {
@@ -35,17 +35,15 @@ const LoginUserSlice = createSlice({
       } else {
         const newUser = {
           key: uniqueKey(),
-          userName: nameInput,
-          mailID: registerMail,
-          password: registerPass,
+          userName,
+          mailID,
+          password,
         };
 
         const updatedList = [newUser, ...state];
         localStorage.setItem(User_ID_LS, JSON.stringify(updatedList));
 
         state.push(newUser);
-
-        alert("Now, you can login to your account");
       }
     },
   },

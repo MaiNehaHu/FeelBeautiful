@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoggedUserDetails } from "../../../Store/Slices/LoggedUserDetailsSlice";
 
-
 const LogInPage = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
@@ -20,8 +19,6 @@ const LogInPage = () => {
   const usersList = useSelector((state) => {
     return state.LoginUser;
   });
-
-  console.log(usersList);
 
   function goforLoginValidation() {
     !loginEmail || !loginPass

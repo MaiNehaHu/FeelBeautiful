@@ -2,20 +2,14 @@ import React from "react";
 import "./TotalPrice.css";
 import { Link, useNavigate } from "react-router-dom";
 
-let key = "Logged User";
 function loggedUserStatus() {
-  let details = localStorage.getItem(key);
-
-  return details ? true : false;
+  let details = localStorage.getItem("Logged User");
+  return details.length <= 2 ? false : true;
 }
 
 const TotalPrice = ({ cartList }) => {
   const navigateTo = useNavigate();
-
-  const logInStatus = loggedUserStatus();
-
   let priceList = [];
-
   cartList.map((item) => {
     return priceList.push(item.price * item.count);
   });
@@ -28,11 +22,11 @@ const TotalPrice = ({ cartList }) => {
   function checkNumofItems() {
     cartList.length === 0
       ? alert("Add something to buy")
-      : logInStatus
+      : loggedUserStatus()
       ? alert(
           "We haven't integrated payment right now. Hope you liked our website"
         )
-      : navigateTo("/LoginOrSignIn");
+      : navigateTo("/SignIn");
   }
 
   return (

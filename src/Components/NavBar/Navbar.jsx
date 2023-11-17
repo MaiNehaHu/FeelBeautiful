@@ -12,7 +12,7 @@ const Navbar = ({}) => {
     return state.LoggedUserDetails;
   }).userName;
 
-  const signInStyling = userName
+  const SignInStyling = userName
     ? {
         display: "none",
       }
@@ -46,7 +46,7 @@ const Navbar = ({}) => {
             Cart🛒<sup id="cartCount">{cart.length}</sup>
           </Link>
 
-          <Link style={signInStyling} to="/SignIn" id="logIn">
+          <Link style={SignInStyling} to="/SignIn" id="logIn">
             Get in🔏
           </Link>
 

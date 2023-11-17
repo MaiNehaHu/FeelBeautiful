@@ -6,14 +6,12 @@ import google from "../../../Images/google.png";
 import microSoft from "../../../Images/ms.png";
 
 import { useNavigate } from "react-router-dom";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { takeInUser } from "../../../Store/Slices/LoginUserSlice";
 
 const SignInPage = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
-
 
   const [nameInput, setNameInput] = useState("");
   const [registerMail, setRegisterMail] = useState("");
@@ -27,9 +25,9 @@ const SignInPage = () => {
       ? alert("You did not enter valid inputs")
       : dispatch(
           takeInUser({
-            nameInput,
-            registerMail,
-            registerPass,
+            userName: nameInput,
+            mailID: registerMail,
+            password: registerPass,
           })
         ) && navigateTo("/LogIn");
   }

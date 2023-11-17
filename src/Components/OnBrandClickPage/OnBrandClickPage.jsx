@@ -11,6 +11,7 @@ const OnBrandClickPage = () => {
   const list = useSelector((state) => {
     return state.Productslist.data;
   });
+
   const Brands = useSelector((state) => {
     return state.clickedBrand;
   });
@@ -51,6 +52,7 @@ const OnBrandClickPage = () => {
           ))
         )}
       </div>
+      
       <GoToTop />
     </React.Fragment>
   );
