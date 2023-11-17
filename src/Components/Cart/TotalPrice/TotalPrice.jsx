@@ -1,5 +1,5 @@
 import React from "react";
-import "./total.css";
+import "./TotalPrice.css";
 import { Link, useNavigate } from "react-router-dom";
 
 let key = "Logged User";

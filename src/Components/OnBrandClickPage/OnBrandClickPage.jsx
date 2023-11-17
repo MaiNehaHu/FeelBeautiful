@@ -2,7 +2,7 @@ import React from "react";
 import "./OnBrandClickPage.css";
 
 import ProductCard from "../ProductCard/ProductCard";
-import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+import GoToTop from "../GoToTop/GoToTop";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -51,7 +51,7 @@ const OnBrandClickPage = () => {
           ))
         )}
       </div>
-      <GoToTopOnRouterLink />
+      <GoToTop />
     </React.Fragment>
   );
 };

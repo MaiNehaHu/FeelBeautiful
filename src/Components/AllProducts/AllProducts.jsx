@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./body.css";
+import "./AllProducts.css";
 
 import Filters from "../Filters/Filters";
 import Image from "../../Images/noSearchResult.png";
 import ProductCard from "../ProductCard/ProductCard";
-import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+import GoToTop from "../GoToTop/GoToTop";
 
 import { fetchProductsList } from "../../Store/Slices/ProductsListSlice";
 
@@ -135,7 +135,7 @@ const AllProducts = ({}) => {
           </section>
         </div>
       </div>
-      <GoToTopOnRouterLink />
+      <GoToTop />
     </React.Fragment>
   );
 };

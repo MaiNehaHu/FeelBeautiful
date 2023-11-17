@@ -2,7 +2,7 @@ import "./OnProductClickPage.css";
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+import GoToTop from "../GoToTop/GoToTop";
 import { changeColor } from "../../Store/Slices/SelectedProductColorSlice";
 import { addToCart } from "../../Store/Slices/CartListSlice";
 
@@ -127,7 +127,7 @@ const OnProductClickPage = ({}) => {
         </div>
       )}
 
-      <GoToTopOnRouterLink />
+      <GoToTop />
     </React.Fragment>
   );
 };

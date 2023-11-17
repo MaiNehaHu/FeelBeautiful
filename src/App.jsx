@@ -6,10 +6,10 @@ import OnProductClickPage from "./Components/OnProductClickPage/OnProductClickPa
 import Cart from "./Components/Cart/Cart";
 import Navbar from "./Components/NavBar/Navbar";
 import Carousel from "./Components/Carousel/Carousel";
-import Brand from "./Components/Body/Brand";
+import Brand from "./Components/Brand/Brand";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import OnBrandClickPage from "./Components/OnBrandClickPage/OnBrandClickPage";
-import ErrorPage from "./Components/404ErrorPage.jsx/ErrorPage";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import NavigateToAllProd from "./Components/NavigateToAllProducts/NavigateToAllProd";
 import LogInPage from "./Components/Login&SignIn/LogInPage/LogInPage";
 import SignInPage from "./Components/Login&SignIn/SignInPage/SignInPage";

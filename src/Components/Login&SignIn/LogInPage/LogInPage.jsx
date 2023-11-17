@@ -21,9 +21,11 @@ const LogInPage = () => {
     return state.LoginUser;
   });
 
+  console.log(usersList);
+
   function goforLoginValidation() {
     !loginEmail || !loginPass
-      ? alert("You did not enter  or Password")
+      ? alert("You did not enter Email or Password")
       : checkUsersCredentais();
   }
 

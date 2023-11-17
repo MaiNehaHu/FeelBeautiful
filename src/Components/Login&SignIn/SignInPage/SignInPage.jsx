@@ -27,9 +27,9 @@ const SignInPage = () => {
       ? alert("You did not enter valid inputs")
       : dispatch(
           takeInUser({
-            nameInput: nameInput,
-            registerMail: registerMail,
-            registerPass: registerPass,
+            nameInput,
+            registerMail,
+            registerPass,
           })
         ) && navigateTo("/LogIn");
   }

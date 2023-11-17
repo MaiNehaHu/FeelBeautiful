@@ -1,7 +1,7 @@
 import React from "react";
 import "./cart.css";
 import TotalPrice from "./TotalPrice/TotalPrice";
-import GoToTopOnRouterLink from "../GoToTop/GoToTopOnRouterLink";
+import GoToTop from "../GoToTop/GoToTop";
 
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCart } from "../../Store/Slices/CartListSlice";
@@ -72,7 +72,7 @@ const Cart = ({}) => {
 
       <TotalPrice cartList={cartList} />
 
-      <GoToTopOnRouterLink />
+      <GoToTop />
     </React.Fragment>
   );
 };

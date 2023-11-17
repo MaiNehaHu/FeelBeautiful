@@ -1,5 +1,5 @@
 import React from "react";
-import "./card.css";
+import "./ProductCard.css";
 import { useDispatch } from "react-redux";
 import { setClickedProduct } from "../../Store/Slices/ClickedProductSlice";
 

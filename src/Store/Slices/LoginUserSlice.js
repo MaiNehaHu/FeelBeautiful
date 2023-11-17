@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const User_ID_LS = "Users List";
+const User_ID_LS = "Logged Users List";
 function getUsersCredentialsList() {
   let data = localStorage.getItem(User_ID_LS);
 
