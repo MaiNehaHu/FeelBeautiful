@@ -13,24 +13,28 @@ const LogInPage = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPass, setLoginPass] = useState("");
+  const [loginCredentials, setLoginCredentials] = useState({
+    loginEmail: "",
+    loginPass: "",
+  });
 
   const usersList = useSelector((state) => {
     return state.LoginUser;
   });
 
   function goforLoginValidation() {
-    !loginEmail || !loginPass
+    !loginCredentials.loginEmail || !loginCredentials.loginPass
       ? alert("You did not enter Email or Password")
       : checkUsersCredentais();
   }
 
   function checkUsersCredentais() {
-    let userToLogin = usersList.find((user) => user.mailID === loginEmail);
+    let userToLogin = usersList.find(
+      (user) => user.mailID === loginCredentials.loginEmail
+    );
 
     if (userToLogin) {
-      if (userToLogin.password === loginPass) {
+      if (userToLogin.password === loginCredentials.loginPass) {
         dispatch(setLoggedUserDetails({ userToLogin }));
 
         navigateTo(`/UserDashBoard/:${userToLogin.userName}`);
@@ -47,10 +51,17 @@ const LogInPage = () => {
     }
   }
 
+  function handleLoginCredentials(e) {
+    setLoginCredentials({
+      ...loginCredentials,
+      [e.target.name]: e.target.value,
+    });
+  }
+
   return (
     <React.Fragment>
       <div className="loginContainer Container">
-        <div className="card">
+        <form className="card">
           <section className="AskLoginOrRegister">
             <button
               id="register"
@@ -70,11 +81,9 @@ const LogInPage = () => {
             <label htmlFor="email">Registered MailID: </label>
             <input
               required
-              onInput={(e) => {
-                setLoginEmail(e.target.value);
-              }}
+              onInput={handleLoginCredentials}
               type="email"
-              name="email"
+              name="loginEmail"
               id="input-email"
               placeholder="yourName@gmail.com"
               onKeyDown={(e) => {
@@ -89,9 +98,9 @@ const LogInPage = () => {
             <label htmlFor="pass">🫣Your Password: </label>
             <input
               required
-              onInput={(e) => setLoginPass(e.target.value)}
+              onInput={handleLoginCredentials}
               type="password"
-              name="password"
+              name="loginPass"
               id="input-password"
               placeholder="Secrete Password"
               onKeyDown={(e) => {
@@ -123,7 +132,7 @@ const LogInPage = () => {
               <img src={microSoft} alt="MicroSoft icon" />
             </button>
           </section>
-        </div>
+        </form>
       </div>
     </React.Fragment>
   );

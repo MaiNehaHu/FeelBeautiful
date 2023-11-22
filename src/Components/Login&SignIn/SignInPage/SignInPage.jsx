@@ -13,23 +13,29 @@ const SignInPage = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
-  const [nameInput, setNameInput] = useState("");
-  const [registerMail, setRegisterMail] = useState("");
-  const [registerPass, setRegisterPass] = useState("");
+  const [newUserDetails, setNewUserDetails] = useState({
+    userName: "",
+    userMail: "",
+    userPassword: "",
+  });
 
-  function RegistrationValidation(registerMail, registerPass) {
-    !registerMail ||
-    !registerPass ||
-    !registerMail.includes("@") ||
-    !registerMail.includes(".")
+  function RegistrationValidation(mailID, password) {
+    !mailID || !password || !mailID.includes("@")
       ? alert("You did not enter valid inputs")
       : dispatch(
           takeInUser({
-            userName: nameInput,
-            mailID: registerMail,
-            password: registerPass,
+            userName: newUserDetails.userName,
+            mailID,
+            password,
           })
         ) && navigateTo("/LogIn");
+  }
+
+  function handleUserDetailsInput(e) {
+    setNewUserDetails({
+      ...newUserDetails,
+      [e.target.name]: e.target.value,
+    });
   }
 
   return (
@@ -51,10 +57,10 @@ const SignInPage = () => {
             <input
               required
               type="text"
-              name="name"
+              name="userName"
               id="input-userName"
               placeholder="Beautiful Name"
-              onInput={(e) => setNameInput(e.target.value)}
+              onChange={handleUserDetailsInput}
             />
           </section>
 
@@ -62,14 +68,17 @@ const SignInPage = () => {
             <label htmlFor="email">Your MailID: </label>
             <input
               required
-              onInput={(e) => setRegisterMail(e.target.value)}
+              onChange={handleUserDetailsInput}
               type="email"
-              name="email"
+              name="userMail"
               id="input-email"
               placeholder="yourName@gmail.com"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  RegistrationValidation(registerMail, registerPass);
+                  RegistrationValidation(
+                    newUserDetails.userMail,
+                    newUserDetails.userPassword
+                  );
                 }
               }}
             />
@@ -79,14 +88,17 @@ const SignInPage = () => {
             <label htmlFor="pass">Set Password: </label>
             <input
               required
-              onInput={(e) => setRegisterPass(e.target.value)}
+              onChange={handleUserDetailsInput}
               type="password"
-              name="password"
+              name="userPassword"
               id="input-password"
               placeholder="Secrete Password"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  RegistrationValidation(registerMail, registerPass);
+                  RegistrationValidation(
+                    newUserDetails.userMail,
+                    newUserDetails.userPassword
+                  );
                 }
               }}
             />
@@ -95,7 +107,12 @@ const SignInPage = () => {
           <section>
             <button
               id="signinButton"
-              onClick={() => RegistrationValidation(registerMail, registerPass)}
+              onClick={() =>
+                RegistrationValidation(
+                  newUserDetails.userMail,
+                  newUserDetails.userPassword
+                )
+              }
             >
               Register me
             </button>

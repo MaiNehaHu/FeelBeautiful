@@ -11,7 +11,7 @@ export const fetchProductsList = createAsyncThunk(
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-
+      
       return data;
     } catch (error) {
       console.error("An error occurred: \n", error);
@@ -44,4 +44,3 @@ const ProductListSlice = createSlice({
 });
 
 export default ProductListSlice.reducer;
-export const listOfProducts = ProductListSlice.getInitialState().data;
