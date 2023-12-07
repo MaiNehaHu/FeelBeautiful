@@ -16,7 +16,7 @@ const ProductCard = ({ item }) => {
       >
         <section className="price">
           <div>
-            <span>Rs.</span>
+            <span>{item.price_sign}</span>
             <span>{item.price}</span>
           </div>
           <p className="type">{item.product_type}</p>
