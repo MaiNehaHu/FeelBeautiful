@@ -9,7 +9,7 @@ const ProductCard = ({ item }) => {
   return (
     <React.Fragment>
       <div
-        className="product-card"
+        className="productCard"
         onClick={() => {
           dispatch(setClickedProduct(item));
         }}
