@@ -1,0 +1,42 @@
+.ProductCards {
+  position: relative;
+  padding-top: 5vh;
+  padding-top: 5dvh;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  &__scroll {
+    display: flex;
+    flex-direction: row;
+    padding-inline: 6vw;
+    gap: 6vw;
+  }
+  .loader {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10vh;
+    background-color: gray;
+    border-radius: 1rem;
+    animation: load 2s ease infinite;
+  }
+}
+
+@keyframes load {
+  0%,
+  100% {
+    background-color: gray;
+  }
+  50% {
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .ProductCards {
+    &__scroll {
+      gap: 7vw;
+      padding-inline: 5vw;
+    }
+  }
+}

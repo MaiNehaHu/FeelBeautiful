@@ -31,7 +31,6 @@ const CartListSlice = createSlice({
           }
         : selectedColor;
 
-      console.log();
       let sameOne = state.find(
         (item) =>
           item.name === productDetails.name &&
@@ -45,8 +44,6 @@ const CartListSlice = createSlice({
           color: selectedColor,
           ...productDetails,
         };
-        console.log(newItem);
-
         const updatedList = [newItem, ...state];
 
         localStorage.setItem("CartList", JSON.stringify(updatedList));

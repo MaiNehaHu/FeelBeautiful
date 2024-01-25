@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoggedUserDetails } from "../../../Store/Slices/LoggedUserDetailsSlice";
 
 const LogInPage = () => {
+  const className = "LogInPage";
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
@@ -60,9 +61,9 @@ const LogInPage = () => {
 
   return (
     <React.Fragment>
-      <div className="loginContainer Container">
+      <div className={className + " Container"}>
         <form className="card">
-          <section className="AskLoginOrRegister">
+          <section className={className + "__askLoginOrRegister"}>
             <button
               id="register"
               onClick={() => {

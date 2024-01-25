@@ -1,13 +1,13 @@
 import React from "react";
-import "./OnBrandClickPage.css";
-
+import "./OnBrandClickPage.scss";
 import ProductCard from "../ProductCard/ProductCard";
-import GoToTop from "../GoToTop/GoToTop";
-
+import GoToTop from "../../hooks/GoToTop/GoToTop";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { IoChevronBackCircleSharp } from "react-icons/io5";
 
 const OnBrandClickPage = () => {
+  const className = "onBrandClickPage";
   const list = useSelector((state) => {
     return state.Productslist.data;
   });
@@ -16,43 +16,50 @@ const OnBrandClickPage = () => {
     return state.clickedBrand;
   });
 
-  let brandToDisplay = list.filter(
-    (brand) => brand.brand == Brands.brandName && brand.brand !== null
-  );
+  let brandToDisplay = list
+    .filter((brand) => brand.brand == Brands.brandName && brand.brand !== null)
+    .map((item) => {
+      const itemPrice =
+        item.price === "0.0" || item.price === null
+          ? randomPrice()
+          : item.price;
+
+      return {
+        ...item,
+        price: itemPrice,
+      };
+    });
 
   function randomPrice() {
     return Math.ceil(Math.random() * 10).toFixed(1);
   }
 
-  brandToDisplay = brandToDisplay.map((item) => {
-    const itemPrice =
-      item.price === "0.0" || item.price === null ? randomPrice() : item.price;
-
-    return {
-      ...item,
-      price: itemPrice,
-    };
-  });
-
   return (
     <React.Fragment>
-      <h1 id="brand-name-heading">Brand: {Brands.brandName}</h1>
-      <div id="product-container">
-        {!Brands || Brands.length === 0 ? (
-          <div>
-            <h1 style={{ fontFamily: "monospace", textAlign: "center" }}>
+      <div className={className}>
+        <header>
+          <Link to="/">
+            <IoChevronBackCircleSharp className="backBtn" />
+          </Link>
+
+          <h1 id="brand-name-heading">Brand: {Brands.brandName}</h1>
+        </header>
+
+        <div className="products">
+          {!Brands || Brands.length === 0 ? (
+            <h2 style={{ fontFamily: "monospace", textAlign: "center" }}>
               Please wait...1 2 3
-            </h1>
-          </div>
-        ) : (
-          brandToDisplay.map((item, i) => (
-            <Link to={`/Product`} key={i}>
-              <ProductCard item={item} />
-            </Link>
-          ))
-        )}
+            </h2>
+          ) : (
+            brandToDisplay.map((item, i) => (
+              <Link to={`/Product`} key={i}>
+                <ProductCard item={item} />
+              </Link>
+            ))
+          )}
+        </div>
       </div>
-      
+
       <GoToTop />
     </React.Fragment>
   );

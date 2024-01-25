@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { takeInUser } from "../../../Store/Slices/LoginUserSlice";
 
 const SignInPage = () => {
+  const className = "SignInPage";
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
@@ -40,9 +41,9 @@ const SignInPage = () => {
 
   return (
     <React.Fragment>
-      <div className="registerContainer Container">
+      <div className={className + " Container"}>
         <div className="card">
-          <section className="AskLoginOrRegister">
+          <section className={className + "__askLoginOrRegister"}>
             <button id="login" onClick={() => navigateTo("/LogIn")}>
               Old user? Click Here
             </button>

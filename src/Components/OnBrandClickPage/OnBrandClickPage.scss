@@ -1,0 +1,60 @@
+.backBtn {
+  font-size: xx-large;
+  color: navy;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+@media screen and (max-width: 300px) {
+  .backBtn {
+    font-size: large;
+    color: black;
+  }
+}
+
+.onBrandClickPage {
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2vh 4vw;
+  }
+
+  #brand-name-heading {
+    margin: 20px;
+    color: black;
+    text-align: center;
+    font-family: "Rowdies", cursive;
+  }
+
+  .products {
+    width: 100%;
+    height: 100%;
+    padding: 2% 5%;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background-color: white;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .onBrandClickPage {
+    #brand-name-heading {
+      font-size: large;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .onBrandClickPage {
+    #brand-name-heading {
+      margin: 0rem 2.5rem;
+    }
+  }
+}

@@ -1,19 +1,19 @@
-import "./App.css";
+import "./App.scss";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import OnProductClickPage from "./Components/OnProductClickPage/OnProductClickPage";
 import Cart from "./Components/Cart/Cart";
 import NavBar from "./Components/NavBar/NavBar";
 import Carousel from "./Components/Carousel/Carousel";
-import Brand from "./Components/Brand/Brand";
+import BrandCards from "./Components/BrandCards/BrandCards";
+import ProductCards from "./Components/ProductCards/ProductCards";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import OnBrandClickPage from "./Components/OnBrandClickPage/OnBrandClickPage";
-import ErrorPage from "./Components/ErrorPage/ErrorPage";
-import NavigateToAllProducts from "./Components/NavigateToAllProducts/NavigateToAllProducts";
+import OnProductClickPage from "./Components/OnProductClickPage/OnProductClickPage";
 import LogInPage from "./Components/Login&SignIn/LogInPage/LogInPage";
 import SignInPage from "./Components/Login&SignIn/SignInPage/SignInPage";
 import UserDashboard from "./Components/Dashboard/UserDashboard";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
 
 import { fetchProductsList } from "./Store/Slices/ProductsListSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,9 +42,14 @@ function App() {
           path="/"
           element={
             <React.Fragment>
-              <NavigateToAllProducts />
               <Carousel />
-              <Brand />
+             
+              <BrandCards origin={0} end={10} />
+              <ProductCards origin={0} end={10} />
+              <BrandCards origin={11} end={20} />
+              <ProductCards origin={17} end={27} />
+              <BrandCards origin={21} end={30} />
+              <ProductCards origin={28} end={38} />
             </React.Fragment>
           }
         />
@@ -68,7 +73,7 @@ function App() {
             </React.Fragment>
           }
         />
-        
+
         <Route
           path={`/Product`}
           element={

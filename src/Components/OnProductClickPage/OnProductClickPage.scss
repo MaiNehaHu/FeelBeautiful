@@ -1,0 +1,205 @@
+/*Container*/
+.clickedProduct {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  header {
+    width: 100%;
+    gap: 2vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__container {
+    gap: 2.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /*Left side*/
+  &__image {
+    width: 50%;
+    height: 70vh;
+    height: 70dvh;
+    img {
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /*Right side*/
+  &__details {
+    width: 50%;
+    height: 70vh;
+    height: 70dvh;
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  &__name {
+    user-select: none;
+    color: black;
+    font-size: 2.5rem;
+    font-family: "Viga", sans-serif;
+  }
+
+  &__type {
+    user-select: none;
+    font-size: larger;
+    color: black;
+    font-family: "Righteous", cursive;
+  }
+  &__brand {
+    user-select: none;
+    color: crimson;
+    font-size: large;
+    font-family: "Righteous", cursive;
+  }
+
+  &__price {
+    color: black;
+    user-select: none;
+    font-size: 4rem;
+    font-family: "Viga", sans-serif;
+  }
+
+  &__description {
+    width: 100%;
+    font-family: "Viga", sans-serif;
+  }
+  &__tags {
+    color: black;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  &__colors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+    div {
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      margin: 3px 0px;
+      border-radius: 50%;
+    }
+  }
+}
+
+#addToCartButton button {
+  cursor: pointer;
+  margin: 10px 0px;
+  padding: 10px;
+  font-size: large;
+  color: white;
+  border-radius: 1rem;
+  background-color: crimson;
+  font-family: "Viga", sans-serif;
+}
+
+@media screen and (max-width: 780px) {
+  .clickedProduct {
+    &__name {
+      font-size: 2.8rem;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .clickedProduct {
+    padding: 1rem 2rem;
+    &__name {
+      font-size: 2.5rem;
+    }
+    &__brand {
+      font-size: large;
+    }
+    &__price {
+      font-size: 3rem;
+    }
+    &__colors > div {
+      height: 25px;
+      width: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .clickedProduct {
+    &__container {
+      padding: 5% 10%;
+      flex-direction: column;
+    }
+    &__image {
+      width: 100%;
+      height: 60vh;
+      height: 60dvh;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+      }
+    }
+    &__details {
+      margin-top: 40px;
+      width: 100%;
+      height: fit-content;
+    }
+    &__name {
+      font-size: x-large;
+      word-wrap: break-word;
+      word-break: keep-all;
+    }
+    &__price {
+      font-size: 2.5rem;
+    }
+    &__colors {
+      gap: 1px;
+      margin: 20px 0px;
+      div {
+        margin: 1px 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .clickedProduct {
+    padding: 0.5rem;
+    &__container {
+      padding: 1rem;
+      flex-direction: column;
+    }
+    &__image {
+      width: 100%;
+      height: 40vh;
+      height: 40dvh;
+    }
+    &__name {
+      font-size: x-large;
+    }
+    &__description {
+      font-size: small;
+    }
+    #addToCartButton button {
+      font-size: smaller;
+    }
+  }
+}

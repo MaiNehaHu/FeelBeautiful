@@ -1,0 +1,184 @@
+.showOffPage {
+  width: 100%;
+  height: 70vh;
+  height: 70dvh;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  &__carouselContainer {
+    position: relative;
+    width: 60vw;
+    width: 60dvw;
+    height: 100%;
+
+    overflow: hidden;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    background-color: #d2c6ff;
+  }
+
+  &__Message {
+    width: 40vw;
+    width: 40dvw;
+    height: 100%;
+    padding: 2%;
+    font-weight: bold;
+    text-align: center;
+
+    user-select: none;
+    cursor: default;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+      color: black;
+      padding: 10px;
+      cursor: pointer;
+      margin-top: 2vh;
+      margin-top: 2dvh;
+      border-radius: 1rem;
+      font-weight: lighter;
+      font-size: large;
+      background-color: #ffffff00;
+      font-family: "Righteous", cursive;
+      transition: all 0.5s ease-out;
+
+      &:hover {
+        box-shadow: 2px 2px 5px black;
+      }
+    }
+    p {
+      font-size: 4rem;
+      font-family: "Permanent Marker", cursive;
+      background: linear-gradient(
+        120deg,
+        violet,
+        indigo,
+        blue,
+        green,
+        yellow,
+        orange,
+        red,
+        violet,
+        indigo,
+        blue
+      );
+      background-size: 500%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+      animation: Rainbow 10s linear infinite forwards;
+
+      span {
+        font-size: 6rem;
+        display: block;
+      }
+    }
+  }
+
+  &__images {
+    width: 1000%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    .image {
+      width: 10%;
+      height: 100%;
+      transition: all 0.8s ease-out;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@keyframes Rainbow {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .showOffPage {
+    &__Message > p {
+      font-size: 3.5rem;
+      span {
+        font-size: 5.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .showOffPage {
+    width: 100%;
+    height: 55vh;
+    height: 55dvh;
+
+    &__Message > p {
+      font-size: 3rem;
+      span {
+        font-size: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .showOffPage {
+    width: 100%;
+    height: 45vh;
+    height: 45dvh;
+    &__Message > p {
+      font-size: 2.2rem;
+      span {
+        font-size: 3.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .showOffPage {
+    width: 100%;
+    height: 100%;
+    flex-direction: column-reverse;
+    &__carouselContainer {
+      width: 100%;
+      height: 45vh;
+      height: 45dvh;
+      border-radius: 0;
+    }
+
+    &__Message {
+      width: 100%;
+      p {
+        font-size: 3rem;
+        span {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .showOffPage {
+    &__Message > p {
+      font-size: 2.5rem;
+      span {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}

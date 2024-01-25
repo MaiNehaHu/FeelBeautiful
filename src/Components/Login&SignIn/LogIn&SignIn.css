@@ -173,12 +173,6 @@
 }
 
 @media screen and (max-width: 460px) {
-  #input-email,
-  #input-password,
-  #input-userName {
-    padding: 3px;
-  }
-
   #loginButton,
   #signinButton {
     padding: 5px 25px;
@@ -187,6 +181,12 @@
   #sign-in-using > button {
     height: 30px;
     width: 30px;
+  }
+  
+  #input-email,
+  #input-password,
+  #input-userName {
+    font-size: small;
   }
 }
 @media screen and (max-width: 330px) {

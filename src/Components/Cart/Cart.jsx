@@ -1,7 +1,7 @@
 import React from "react";
 import "./cart.css";
 import TotalPrice from "./TotalPrice/TotalPrice";
-import GoToTop from "../GoToTop/GoToTop";
+import GoToTop from "../../hooks/GoToTop/GoToTop";
 
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCart } from "../../Store/Slices/CartListSlice";

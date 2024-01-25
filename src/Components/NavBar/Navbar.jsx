@@ -1,5 +1,6 @@
 import React from "react";
-import "./NavBar.css";
+import "./NavBar.scss";
+import { useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -7,16 +8,11 @@ const NavBar = ({}) => {
   const cart = useSelector((state) => {
     return state.CartList;
   });
-
   const userName = useSelector((state) => {
     return state.LoggedUserDetails;
   }).userName;
-
-  const SignInStyling = userName
-    ? {
-        display: "none",
-      }
-    : {};
+  const is630px = useMediaQuery("(min-width: 630px)");
+  const className = "navBar";
 
   const userDashBoardStyling = !userName
     ? {
@@ -26,31 +22,45 @@ const NavBar = ({}) => {
 
   return (
     <React.Fragment>
-      <header id="nav">
+      <nav id="nav" className={className}>
         <section id="logo">
           <Link to="/">Feel Beautiful❤️</Link>
         </section>
 
-        <section id="navs">
-          <Link to="/">Home🏡</Link>
+        <section className={className + "__navigators"}>
+          <Link to="/">
+            {is630px ? "Home" : ""}
+            🏡
+          </Link>
 
           <Link to="/Cart">
-            Cart🛒<sup id="cartCount">{cart.length}</sup>
+            {is630px ? "Cart" : ""}
+            🛒
+            <sup id="cartCount">{cart.length}</sup>
           </Link>
 
-          <Link style={SignInStyling} to="/SignIn" id="signIn">
-            Get in🔏
-          </Link>
-
-          <Link
-            style={userDashBoardStyling}
-            to={`/UserDashBoard/:${userName}`}
-            id="signIn"
-          >
-            Dashboard <i className="fa fa-user" aria-hidden="true"></i>
-          </Link>
+          {!userName ? (
+            <Link to="/SignIn" id="signIn">
+              {is630px ? "Get in" : ""}
+              🔏
+            </Link>
+          ) : (
+            ""
+          )}
+          {userName ? (
+            <Link
+              style={userDashBoardStyling}
+              to={`/UserDashBoard/:${userName}`}
+              id="signIn"
+            >
+              {is630px ? "Dashboard" : ""}
+              <i className="fa fa-user" aria-hidden="true"></i>
+            </Link>
+          ) : (
+            ""
+          )}
         </section>
-      </header>
+      </nav>
     </React.Fragment>
   );
 };

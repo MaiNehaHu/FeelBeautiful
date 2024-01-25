@@ -10,23 +10,14 @@ body {
 a {
   text-decoration: none;
 }
-
 /*scrollbar*/
 ::-webkit-scrollbar {
-  width: 12px;
-  background: linear-gradient(
-    to bottom,
-    violet,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-  );
+  width: 5px;
+  height: 5px;
+  background: rgb(200, 200, 200);
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: black;
   border-radius: 0.5rem;
-  border: 2px solid white;
 }

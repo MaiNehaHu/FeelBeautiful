@@ -2,10 +2,8 @@ import React from "react";
 import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { resetUserDetails } from "../../Store/Slices/LoggedUserDetailsSlice";
 import { updateUserImage } from "../../Store/Slices/LoggedUserDetailsSlice";
-
 
 const UserDashboard = () => {
   const dispatch = useDispatch();

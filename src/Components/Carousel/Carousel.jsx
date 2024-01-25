@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./carousel.css";
+import "./carousel.scss";
 import image1 from "../../Images/image1.png";
 import image2 from "../../Images/image2.jpg";
 import image3 from "../../Images/image3.png";
@@ -10,11 +10,13 @@ import image7 from "../../Images/image7.jpg";
 import image8 from "../../Images/image8.jpg";
 import image9 from "../../Images/image9.jpg";
 import image10 from "../../Images/image10.jpg";
+import { Link } from "react-router-dom";
 
 const Carousel = () => {
   const [count, setCount] = useState(0);
   const [forward, setForward] = useState(true);
   const [marginLeff, setMarginLeff] = useState(0);
+  const className = "showOffPage";
 
   /**For images to shift */
   function SetSlide(count) {
@@ -81,16 +83,17 @@ const Carousel = () => {
 
   return (
     <React.Fragment>
-      
-      <div className="showOffPage">
-        <section className="Message">
+      <div className={className}>
+        <section className={className + "__Message"}>
           <p>
             Buy your <span>favourite </span> products.
           </p>
+          
+          <Link to="/AllProducts">Explore all products</Link>
         </section>
 
-        <section className="carousel-container">
-          <div className="images">
+        <section className={className + "__carouselContainer"}>
+          <div className={className + "__images"}>
             <div className="image pic-1" style={{ marginLeft: marginLeff }}>
               <img src={image1} alt="image1" />
             </div>

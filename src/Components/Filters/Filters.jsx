@@ -1,124 +1,83 @@
 import React, { useEffect, useState } from "react";
-import "./Filters.css";
-import useSelectHook from "../../hooks/useSelectHook";
-import { useSelector } from "react-redux";
+import "./Filters.scss";
 
-const Filters = ({
-  getSearchInput,
-  getFilterInput,
-  IconIsClicked /**Coming from AllProducts.jsx */,
-}) => {
+import { useSelector } from "react-redux";
+import { useMediaQuery } from "@mui/material";
+import useSelectHook from "../../hooks/useSelectHook";
+
+const Filters = ({ getSearchInput, getFilterInput }) => {
+  const [price, setPrice] = useState(100);
+  const [priceRange, setPriceRange] = useSelectHook("0-100");
+  const [brand, setBrand] = useSelectHook("All");
+  const [type, setType] = useSelectHook("All");
+
+  const className = "filter";
+  const is1000px = useMediaQuery("(min-width: 1000px)");
+  const is650px = useMediaQuery("(min-width: 650px)");
+  let FilterToSend = [{ brand, product_type: type, price, priceRange }];
+
   const list = useSelector((state) => {
     return state.Productslist.data;
   });
 
-  if (!list) return;
-
-  const [showSearchBar, setShowSearchBar] = useState(false);
-  const [showFilters, setShowFilters] = useState(false);
-  const [priceRange, setPriceRange] = useState(100);
-  const [brand, setBrand] = useSelectHook("All");
-  const [type, setType] = useSelectHook("All");
-  const [topPixel, setTopPixel] = useState(0);
-
-  let FilterToSend = [{ brand: brand, product_type: type, price: priceRange }];
-
-  //Brand
-  let allBrandNames = list.map((item) => {
-    return item.brand;
-  });
-  //filtered the brands name bcz few that null name
-  const brandNames = allBrandNames.filter((brandName) => {
-    return brandName !== null;
-  });
+  const brandNames =
+    list &&
+    list
+      .map((item) => {
+        return item.brand;
+      })
+      .filter((brandName) => {
+        return brandName !== null;
+      });
 
   //Type
-  let allTypes = list.map((item) => {
-    return item.product_type;
-  });
+  let allTypes =
+    list &&
+    list.map((item) => {
+      return item.product_type;
+    });
+
+  //Price ranges
+  let priceRangeList = [
+    "1-10",
+    "11-20",
+    "21-30",
+    "31-40",
+    "41-50",
+    "51-60",
+    "61-70",
+    "71-80",
+  ];
 
   //Making the list with no duplicate
   let brands = [...new Set(brandNames)];
   let types = [...new Set(allTypes)];
 
   useEffect(() => {
-    //Disappear input field when input field is not focused
-    document.getElementById("search-input").addEventListener("focusout", () => {
-      setShowSearchBar(false);
-    });
-
-    //Setting height of filters according to end of nav
-    const handleResize = () => {
-      setTopPixel(document.getElementById("filter").offsetHeight);
-    };
-    window.addEventListener("resize", handleResize);
-
-    //Initial setup when the component mounts
-    handleResize();
-
-    //Cleanup the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    getFilterInput(FilterToSend);
+  }, [brand, price, priceRange, type]);
 
   return (
     <React.Fragment>
-      <div id="filter">
-        <div className="searching-tools">
-          <div className="search">
-            <i
-              onClick={() => {
-                showFilters
-                  ? setShowSearchBar(false)
-                  : setShowSearchBar(!showSearchBar);
+      <div className={className}>
+        {is1000px ? (
+          <div className={className + "__sideBar"}>
+            <div className={className + "__sideBar__searchBar"}>
+              <input
+                type="search"
+                name="product"
+                id="search-input"
+                placeholder="Search here"
+                onKeyUp={(e) => getSearchInput(e.target.value)}
+              />
+            </div>
 
-                IconIsClicked();
-              }}
-              className="fa search-icon"
-            >
-              &#xf002;
-            </i>
-
-            <input
-              style={{ display: showSearchBar ? "block" : "none" }}
-              type="search"
-              name="product"
-              id="search-input"
-              onKeyUp={(e) => getSearchInput( e.target.value)}
-            />
-          </div>
-
-          <div
-            id="filter-show-button"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <span>Filter</span>
-
-            <i
-              onClick={() => {
-                showSearchBar
-                  ? setShowFilters(false)
-                  : setShowFilters(!showFilters);
-
-                IconIsClicked();
-              }}
-              className="fa fa-bars more-icon"
-            ></i>
-          </div>
-        </div>
-
-        <div
-          id="TotalfiltersContainer"
-          style={{
-            display: showFilters ? "flex" : "none",
-            top: `${topPixel}px`,
-          }}
-        >
-          <div id="filtersContainer">
-            <section className="brand-input">
-              <label htmlFor="brand">Brand: </label>
-              <select {...setBrand} name="brand" id="brand-filter">
+            <section className={className + "__sideBar__brandInput"}>
+              <select
+                {...setBrand}
+                name="brand"
+                className={className + "__brandFilter"}
+              >
                 <option value="All">All brands</option>
 
                 {brands.map((brand, i) => (
@@ -129,9 +88,12 @@ const Filters = ({
               </select>
             </section>
 
-            <section className="type-input">
-              <label htmlFor="type">Type: </label>
-              <select {...setType} name="type" id="type-filter">
+            <section className={className + "__sideBar__typeInput"}>
+              <select
+                {...setType}
+                name="type"
+                className={className + "__typeFilter"}
+              >
                 <option value="All">All types</option>
 
                 {types.map((type, i) => (
@@ -142,12 +104,12 @@ const Filters = ({
               </select>
             </section>
 
-            <section className="range-input">
-              <label htmlFor="range-input">Price Range: </label>
+            <section className={className + "__sideBar__rangeInput"}>
+              <label htmlFor="range-input">Price: </label>
 
               <input
                 onInput={(e) => {
-                  setPriceRange(e.target.value);
+                  setPrice(e.target.value);
                 }}
                 type="range"
                 min={1}
@@ -157,26 +119,73 @@ const Filters = ({
                 name="proce-range"
                 id="price-range"
               />
-              <span id="range-filter">
-                {priceRange === undefined
-                  ? `00`
-                  : priceRange < 10
-                  ? `0${priceRange}`
-                  : priceRange}
+              <span className={className + "__rangeFilter"}>
+                {price === undefined ? `00` : price < 10 ? `0${price}` : price}
               </span>
             </section>
-          </div>
 
-          <button
-            id="applyButton"
-            onClick={() => {
-              getFilterInput(FilterToSend);
-              setShowFilters(false);
-            }}
-          >
-            Apply Filter
-          </button>
-        </div>
+            <button
+              id="applyButton"
+              onClick={() => {
+                getFilterInput(FilterToSend);
+              }}
+            >
+              Apply Filter
+            </button>
+          </div>
+        ) : (
+          <div className={className + "__topBar"}>
+            {is650px ? <h1 className="heading">All Products</h1> : ""}
+
+            <section className={className + "__topBar__brandInput"}>
+              <select
+                {...setBrand}
+                name="brand"
+                className={className + "__brandFilter"}
+              >
+                <option value="All">All brands</option>
+
+                {brands.map((brand, i) => (
+                  <option value={brand} key={i}>
+                    {brand}
+                  </option>
+                ))}
+              </select>
+            </section>
+
+            <section className={className + "__topBar__typeInput"}>
+              <select
+                {...setType}
+                name="type"
+                className={className + "__typeFilter"}
+              >
+                <option value="All">All types</option>
+
+                {types.map((type, i) => (
+                  <option value={type} key={i}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </section>
+
+            <section className={className + "__topBar__priceRangeInput"}>
+              <select
+                {...setPriceRange}
+                name="priceRange"
+                className={className + "__priceRangeFilter"}
+              >
+                <option value="0-100">All Price</option>
+
+                {priceRangeList.map((range, i) => (
+                  <option value={range} key={i}>
+                    {range}
+                  </option>
+                ))}
+              </select>
+            </section>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );

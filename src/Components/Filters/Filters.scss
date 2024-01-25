@@ -1,0 +1,174 @@
+.filter {
+  &__sideBar {
+    position: sticky;
+    top: 10vh;
+    top: 10dvh;
+
+    width: 20vw;
+    height: 90vh;
+    height: 90dvh;
+    display: flex;
+    padding: 5vh 1vw;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
+    background-color: white;
+    border-right: 1px solid black;
+
+    &__searchBar {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__brandInput,
+    &__typeInput,
+    &__rangeInput {
+      padding: 5% 2%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__brandFilter,
+  &__typeFilter,
+  &__rangeFilter,
+  &__priceRangeFilter,
+  #applyButton {
+    padding: 5px;
+    border-radius: 10px;
+    font-size: large;
+    font-family: "Viga", sans-serif;
+  }
+
+  &__brandFilter,
+  &__typeFilter,
+  &__rangeFilter,
+  &__priceRangeFilter {
+    color: navy;
+    background-color: white;
+    font-family: "Viga", sans-serif;
+  }
+
+  #applyButton {
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+    background-color: navy;
+  }
+
+  #search-input {
+    padding: 0.3rem;
+    font-size: large;
+    border-radius: 0.5rem;
+    font-family: "Viga", sans-serif;
+    background-color: #e0e9ff;
+  }
+
+  label {
+    font-size: larger;
+    font-family: "Viga", sans-serif;
+  }
+
+  &__topBar {
+    width: 100%;
+    display: flex;
+    padding: 1rem 4vw;
+    z-index: 11;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .filter {
+    &__sideBar {
+      width: 25vw;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .filter {
+    position: sticky;
+    top: 0;
+    z-index: 11;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .filter {
+    &__sideBar {
+      #search-input {
+        font-size: medium;
+      }
+      label {
+        font-size: medium;
+      }
+    }
+
+    &__brandFilter,
+    &__typeFilter,
+    &__rangeFilter,
+    &__priceRangeFilter {
+      padding: 3px;
+      font-size: medium;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .filter {
+    &__brandFilter,
+    &__typeFilter,
+    &__rangeFilter,
+    &__priceRangeFilter {
+      padding: 3px;
+      font-size: smaller;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .filter {
+    &__sideBar {
+      padding: 3% 5% 1% 5%;
+      #search-input {
+        font-size: small;
+        width: 50%;
+      }
+      label {
+        font-size: small;
+      }
+    }
+
+    &__brandFilter,
+    &__typeFilter,
+    &__rangeFilter,
+    &__priceRangeFilter {
+      font-size: small;
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+  .filter {
+    &__topBar {
+      gap: 0.1rem;
+      flex-wrap: wrap;
+      padding-block: 0.5rem;
+      justify-content: space-evenly;
+    }
+    &__brandFilter,
+    &__typeFilter,
+    &__rangeFilter,
+    &__priceRangeFilter {
+      font-size: xx-small;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+:root {
+  --margin: 0.4rem 0px;
+}
+.AllProducts {
+  &__productContainer {
+    width: 80vw;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+}
+.heading {
+  text-align: center;
+  color: navy;
+  font-family: "Rowdies", cursive;
+}
+
+@media screen and (max-width: 1250px) {
+  .AllProducts {
+    &__productContainer {
+      width: 75%;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .AllProducts {
+    flex-direction: column;
+    &__productContainer {
+      width: 100%;
+    }
+  }
+}
