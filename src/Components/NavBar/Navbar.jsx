@@ -14,12 +14,6 @@ const NavBar = ({}) => {
   const is630px = useMediaQuery("(min-width: 630px)");
   const className = "navBar";
 
-  const userDashBoardStyling = !userName
-    ? {
-        display: "none",
-      }
-    : {};
-
   return (
     <React.Fragment>
       <nav id="nav" className={className}>
@@ -45,19 +39,10 @@ const NavBar = ({}) => {
               🔏
             </Link>
           ) : (
-            ""
-          )}
-          {userName ? (
-            <Link
-              style={userDashBoardStyling}
-              to={`/UserDashBoard/:${userName}`}
-              id="signIn"
-            >
+            <Link to={`/UserDashBoard/:${userName}`} id="signIn">
               {is630px ? "Dashboard" : ""}
               <i className="fa fa-user" aria-hidden="true"></i>
             </Link>
-          ) : (
-            ""
           )}
         </section>
       </nav>
