@@ -12,4 +12,4 @@
 > 8. When clicking on the Pay button. You'll get directed to the Login or SignIn page.
 > 9. The login and Sign-in page is also working.
 
-![FeelBeautiful](https://github.com/MaiNehaHu/FeelBeautiful/assets/111631957/d72095f9-848c-4147-a6fd-19c3924a1806)
+![image](https://github.com/MaiNehaHu/FeelBeautiful/assets/111631957/38cc254c-18b6-4110-9e76-b330faa1ce21)
