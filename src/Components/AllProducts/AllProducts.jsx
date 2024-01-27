@@ -77,7 +77,6 @@ const AllProducts = ({}) => {
 
   function isWithinRange(value, range) {
     const [min, max] = range.toString().split("-").map(parseFloat);
-    console.log(min, max);
 
     if (!isNaN(min) && !isNaN(max)) {
       return parseFloat(value) >= min && parseFloat(value) <= max;

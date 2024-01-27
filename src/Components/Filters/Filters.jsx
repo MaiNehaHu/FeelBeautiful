@@ -54,8 +54,10 @@ const Filters = ({ getSearchInput, getFilterInput }) => {
   let types = [...new Set(allTypes)];
 
   useEffect(() => {
-    getFilterInput(FilterToSend);
-  }, [brand, price, priceRange, type]);
+    if (!is1000px) {
+      getFilterInput(FilterToSend);
+    }
+  }, [brand, priceRange, type]);
 
   return (
     <React.Fragment>
