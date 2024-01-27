@@ -2,6 +2,8 @@
   --margin: 0.4rem 0px;
 }
 .AllProducts {
+  display: flex;
+  flex-direction: row;
   &__productContainer {
     width: 80vw;
     .products {
