@@ -1,0 +1,227 @@
+.logInPage,
+.signInPage {
+  width: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: white;
+  font-family: "Viga", sans-serif;
+
+  .card {
+    width: 50%;
+    padding: 1vw 1vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    background-color: rgb(253, 97, 123);
+
+    section {
+      margin: 10px 0px;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__askLoginOrRegister {
+    #register,
+    #login {
+      color: white;
+      font-size: large;
+      cursor: pointer;
+
+      border: 0px;
+      margin: 0px 30px;
+      background-color: #ffffff00;
+      font-family: "Viga", sans-serif;
+    }
+  }
+
+  &__girlsImage {
+    user-select: none;
+    pointer-events: none;
+    cursor: none;
+
+    width: 200px;
+    height: 100%;
+  }
+
+  &__inputEmail,
+  &__inputPassword,
+  &__inputUserName {
+    padding: 5px;
+    border-radius: 10px;
+    font-size: medium;
+    color: navy;
+    background-color: white;
+
+    font-family: "Viga", sans-serif;
+  }
+
+  &__loginButton,
+  &__signinButton {
+    color: white;
+    font-size: large;
+    font-family: "Viga", sans-serif;
+
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: crimson;
+  }
+
+  &__signInUsing {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    button {
+      border-radius: 50%;
+      cursor: pointer;
+
+      color: white;
+      width: 35px;
+      height: 35px;
+
+      margin: 0px 10px;
+      padding: 5px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.loginedIn,
+.signedIn {
+  /* position: absolute; */
+
+  /* top: 0; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  transform: translateY(0px);
+  animation: SlideDown 0.5s ease-out;
+  font-family: "Viga", sans-serif;
+}
+@keyframes SlideDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .logInPage,
+  .signInPage {
+    .card {
+      width: 70%;
+    }
+
+    &__inputEmail,
+    &__inputPassword,
+    &__inputUserName {
+      padding: 3px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logInPage,
+  .signInPage {
+    .card {
+      width: 70%;
+    }
+
+    .card > section {
+      margin: 7px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__girlsImage {
+      width: 150px;
+    }
+
+    &__askLoginOrRegister {
+      #login,
+      #register {
+        margin: 10px 0px;
+      }
+    }
+
+    &__signInUsing {
+      flex-direction: row !important;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .logInPage {
+    #loginButton {
+      padding: 5px 25px;
+    }
+  }
+  .signInPage {
+    #signinButton {
+      padding: 5px 25px;
+    }
+  }
+
+  .signInPage,
+  .logInPage {
+    &__inputEmail,
+    &__inputPassword,
+    &__inputUserName {
+      font-size: small;
+    }
+
+    &__signInUsing {
+      button {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .logInPage,
+  .signInPage {
+    .card {
+      width: 70%;
+      border-radius: 0.5rem;
+    }
+
+    &__askLoginOrRegister {
+      #login,
+      #register {
+        margin: 3px 0px;
+        font-size: medium;
+      }
+    }
+  }
+}

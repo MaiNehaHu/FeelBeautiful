@@ -1,5 +1,5 @@
 import React from "react";
-import "./cart.css";
+import "./cart.scss";
 import TotalPrice from "./TotalPrice/TotalPrice";
 import GoToTop from "../../hooks/GoToTop/GoToTop";
 
@@ -9,6 +9,7 @@ import { incrementCount } from "../../Store/Slices/CartListSlice";
 import { decrementCount } from "../../Store/Slices/CartListSlice";
 
 const Cart = ({}) => {
+  const className = "Cart";
   const dispatch = useDispatch();
 
   const cartList = useSelector((state) => {
@@ -17,45 +18,51 @@ const Cart = ({}) => {
 
   return (
     <React.Fragment>
-      <ul className="cart-container">
+      <ul className={className}>
         {cartList.map((item, i) => (
-          <li className="cart-product" key={i}>
-            <section className="product-detail-in-cart">
+          <li className={className + "__cartProduct"} key={i}>
+            <section className={className + "__cartProduct__detail"}>
               <div
-                className="product-color"
+                className={className + "__cartProduct__detail__color"}
                 style={{ backgroundColor: `${item.color.hex_value}` }}
               ></div>
 
-              <img src={item.api_featured_image} alt={item.name} />
+              <img
+                src={item.api_featured_image}
+                className={className + "__cartProduct__detail__image"}
+                alt={item.name}
+              />
 
-              <p className="product-name">{item.name}</p>
+              <p className={className + "__cartProduct__detail__name"}>
+                {item.name}
+              </p>
 
-              <p className="price-of-item">
+              <p className={className + "__cartProduct__detail__price"}>
                 {item.price_sign}
                 {item.price}
               </p>
             </section>
 
-            <section id="actions-in-cart">
-              <div className="buttons">
+            <section className={className + "__actions"}>
+              <div className={className + "__actions__buttons"}>
                 <button
-                  className="add-item"
+                  className={className + "__actions__buttons__addItem"}
                   onClick={() => dispatch(incrementCount(item))}
                 >
                   +
                 </button>
 
-                <p className="count">{item.count}</p>
+                <p className={className + "__count"}>{item.count}</p>
 
                 <button
-                  className="remove-item"
+                  className={className + "__actions__buttons__removeItem"}
                   onClick={() => dispatch(decrementCount(item))}
                 >
                   -
                 </button>
               </div>
 
-              <div className="calculated-price">
+              <div className={className + "__calculatedPrice"}>
                 {item.price_sign}
                 {(item.price * item.count).toFixed(1)}
               </div>

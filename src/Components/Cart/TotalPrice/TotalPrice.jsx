@@ -1,5 +1,5 @@
 import React from "react";
-import "./TotalPrice.css";
+import "./TotalPrice.scss";
 import { Link, useNavigate } from "react-router-dom";
 
 function loggedUserStatus() {
@@ -8,6 +8,7 @@ function loggedUserStatus() {
 }
 
 const TotalPrice = ({ cartList }) => {
+  const className = "totalPrice";
   const navigateTo = useNavigate();
   let priceList = [];
   cartList.map((item) => {
@@ -31,7 +32,7 @@ const TotalPrice = ({ cartList }) => {
 
   return (
     <React.Fragment>
-      <div className="total-amount-container">
+      <div className={className}>
         <p>Total Items in Cart: {cartList.length}</p>
 
         <button onClick={checkNumofItems}>

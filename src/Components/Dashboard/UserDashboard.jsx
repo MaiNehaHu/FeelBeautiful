@@ -1,5 +1,5 @@
 import React from "react";
-import "./dashboard.css";
+import "./UserDashboard.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetUserDetails } from "../../Store/Slices/LoggedUserDetailsSlice";

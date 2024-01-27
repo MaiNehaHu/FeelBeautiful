@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../LogIn&SignIn.css";
+import "../LogIn&SignIn.scss";
 
 import image from "../../../Images/forLoginPage.png";
 import google from "../../../Images/google.png";
@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { takeInUser } from "../../../Store/Slices/LoginUserSlice";
 
 const SignInPage = () => {
-  const className = "SignInPage";
+  const className = "signInPage";
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
@@ -41,7 +41,7 @@ const SignInPage = () => {
 
   return (
     <React.Fragment>
-      <div className={className + " Container"}>
+      <div className={className}>
         <div className="card">
           <section className={className + "__askLoginOrRegister"}>
             <button id="login" onClick={() => navigateTo("/LogIn")}>
@@ -50,7 +50,7 @@ const SignInPage = () => {
           </section>
 
           <section>
-            <img src={image} alt="Girls" id="girls-image" />
+            <img src={image} alt="Girls" className={className+"__girlsImage"} />
           </section>
 
           <section>
@@ -59,7 +59,7 @@ const SignInPage = () => {
               required
               type="text"
               name="userName"
-              id="input-userName"
+              className={className+"__inputUserName"}
               placeholder="Beautiful Name"
               onChange={handleUserDetailsInput}
             />
@@ -72,7 +72,7 @@ const SignInPage = () => {
               onChange={handleUserDetailsInput}
               type="email"
               name="userMail"
-              id="input-email"
+              className={className+"__inputEmail"}
               placeholder="yourName@gmail.com"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -92,7 +92,7 @@ const SignInPage = () => {
               onChange={handleUserDetailsInput}
               type="password"
               name="userPassword"
-              id="input-password"
+              className={className+"__inputPassword"}
               placeholder="Secrete Password"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -107,7 +107,7 @@ const SignInPage = () => {
 
           <section>
             <button
-              id="signinButton"
+              className={className+"__signinButton"}
               onClick={() =>
                 RegistrationValidation(
                   newUserDetails.userMail,
@@ -119,8 +119,8 @@ const SignInPage = () => {
             </button>
           </section>
 
-          <section id="sign-in-using">
-            <label htmlFor="signInWithGoogle">Or continue with:</label>
+          <section className={className+"__signInUsing"}>
+            <label>Or continue with:</label>
             <button name="signInWithGoogle">
               <img src={google} alt="google icon" />
             </button>

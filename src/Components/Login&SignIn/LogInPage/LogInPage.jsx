@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../LogIn&SignIn.css";
+import "../LogIn&SignIn.scss";
 
 import image from "../../../Images/forLoginPage.png";
 import google from "../../../Images/google.png";
@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoggedUserDetails } from "../../../Store/Slices/LoggedUserDetailsSlice";
 
 const LogInPage = () => {
-  const className = "LogInPage";
+  const className = "logInPage";
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
@@ -61,9 +61,9 @@ const LogInPage = () => {
 
   return (
     <React.Fragment>
-      <div className={className + " Container"}>
+      <div className={className}>
         <form className="card">
-          <section className={className + "__askLoginOrRegister"}>
+          <section className={className+"__askLoginOrRegister"}>
             <button
               id="register"
               onClick={() => {
@@ -75,7 +75,7 @@ const LogInPage = () => {
           </section>
 
           <section>
-            <img src={image} alt="Girls" id="girls-image" />
+            <img src={image} alt="Girls" className={className+"__girlsImage"} />
           </section>
 
           <section>
@@ -85,7 +85,7 @@ const LogInPage = () => {
               onInput={handleLoginCredentials}
               type="email"
               name="loginEmail"
-              id="input-email"
+              className={className+"__inputEmail"}
               placeholder="yourName@gmail.com"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -102,7 +102,7 @@ const LogInPage = () => {
               onInput={handleLoginCredentials}
               type="password"
               name="loginPass"
-              id="input-password"
+              className={className+"__inputPassword"}
               placeholder="Secrete Password"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -117,13 +117,13 @@ const LogInPage = () => {
           </section>
 
           <section>
-            <button id="loginButton" onClick={() => goforLoginValidation()}>
+            <button className={className+"__loginButton"} onClick={() => goforLoginValidation()}>
               Log me in
             </button>
           </section>
 
-          <section id="sign-in-using">
-            <label htmlFor="signInWithGoogle">Or continue with:</label>
+          <section className={className+"__signInUsing"}>
+            <label>Or continue with:</label>
 
             <button name="signInWithGoogle">
               <img src={google} alt="google icon" />
