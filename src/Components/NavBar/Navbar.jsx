@@ -8,9 +8,11 @@ const NavBar = ({}) => {
   const cart = useSelector((state) => {
     return state.CartList;
   });
+  
   const userName = useSelector((state) => {
     return state.LoggedUserDetails;
   }).userName;
+
   const is630px = useMediaQuery("(min-width: 630px)");
   const className = "navBar";
 

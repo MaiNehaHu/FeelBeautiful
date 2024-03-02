@@ -1,6 +1,6 @@
 .productCard {
   width: 250px;
-  height: fiContent;
+  height: fit-content;
   margin: 20px;
   padding: 0% 5%;
   border-radius: 0.5rem;
@@ -14,19 +14,26 @@
     transition: all 0.4s ease;
   }
 
-  section > img {
+  section img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     background-color: gainsboro;
   }
 
-  &__brand > p {
-    text-align: center;
-    color: red;
+  &__brand {
+    max-width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: medium;
 
-    font-family: "Staatliches", cursive;
+    p {
+      text-align: center;
+      color: red;
+
+      font-family: "Staatliches", cursive;
+    }
   }
 
   &__name > p {
@@ -35,9 +42,11 @@
     font-size: medium;
     font-family: "Secular One", sans-serif;
   }
+
   &__price {
     color: black;
     width: 100%;
+    gap: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,11 +63,11 @@
     font-size: large;
   }
 
-  section > img,
+  section>img,
   &__type,
   &__price,
-  &__name > p,
-  &__brand > p {
+  &__name>p,
+  &__brand>p {
     margin: var(--margin);
   }
 }
@@ -68,27 +77,33 @@
     width: 150px;
     margin: 10px;
     padding: 2% 5%;
-    section > img {
+
+    section>img {
       width: 100%;
       height: 120px;
     }
-    &__name > p {
+
+    &__name>p {
       font-size: small;
     }
-    &__brand > p {
+
+    &__brand>p {
       font-size: smaller;
     }
+
     &__price,
     &__type {
       font-size: medium;
     }
-    &__productCard > section > img,
+
+    &__productCard>section>img,
     &__type,
     &__price {
       margin: 2px 0px;
     }
-    &__name > p,
-    &__brand > p {
+
+    &__name>p,
+    &__brand>p {
       margin: 0px;
     }
   }
@@ -98,25 +113,30 @@
   .productCard {
     width: 120px;
     margin: 0.6rem;
-    section > img {
+
+    section>img {
       width: 100%;
       height: 100px;
     }
-    &__name > p {
+
+    &__name>p {
       font-size: x-small;
     }
-    &__brand > p,
+
+    &__brand>p,
     &__price,
     &__type {
       font-size: small;
     }
+
     &__type,
     &__price {
       margin: var(--margin);
     }
-    &__productCard > section > img,
-    &__name > p,
-    &__brand > p {
+
+    &__productCard>section>img,
+    &__name>p,
+    &__brand>p {
       margin: 5px 0px;
     }
   }

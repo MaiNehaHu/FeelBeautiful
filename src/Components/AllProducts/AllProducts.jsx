@@ -11,10 +11,14 @@ import { fetchProductsList } from "../../Store/Slices/ProductsListSlice";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-const AllProducts = ({}) => {
+const AllProducts = ({ }) => {
   const ProductList = useSelector((state) => {
     return state.Productslist.data;
   });
+
+  const dollarRupees = useSelector((state) => {
+    return state.DollarValue.dollarInRupees;
+  })
 
   const [list, setlist] = useState(ProductList);
   const [displayNotFoundImg, setDisplayNotFoundImg] = useState(false);
@@ -23,38 +27,10 @@ const AllProducts = ({}) => {
   const dispatch = useDispatch();
   const is1000px = useMediaQuery("(min-width: 1000px)");
 
-  /**Search Result list */
-  function randomPrice() {
-    return Math.ceil(Math.random() * 10).toFixed(1);
-  }
-
-  //Removing all glitches e.g. null values, 0 price of products
-  const updatedList =
-    list &&
-    list.map((item) => {
-      const price =
-        item.price === "0.0" || item.price === null
-          ? `${randomPrice()}`
-          : item.price;
-      const price_sign = item.price_sign === null ? "$" : item.price_sign;
-
-      const product_type =
-        item.product_type === null ? "Not known" : item.product_type;
-      const brand = item.brand === null ? "Brand not known" : item.brand;
-
-      // Create a new object with the updated properties
-      return {
-        ...item,
-        price,
-        price_sign,
-        product_type,
-        brand,
-      };
-    });
-
   //Getting search input from input field and setting the list
   function getSearchInput(input) {
     input = input.toLowerCase();
+    console.log(input);
 
     dispatch(fetchProductsList());
 
@@ -64,12 +40,13 @@ const AllProducts = ({}) => {
       const searchResult = ProductList.filter((item) => {
         return (
           item.name.includes(input) ||
-          (item.brand && item.brand.includes(input)) ||
+          item.brand.includes(input) ||
           item.product_type.includes(input) ||
-          (item.price && item.price.includes(input)) ||
-          (item.description && item.description.includes(input))
+          (typeof item.price === 'string' && item.price.includes(input)) || // Check if item.price is a string
+          item.description && item.description.includes(input)
         );
       });
+
 
       setlist(searchResult);
     }
@@ -94,7 +71,7 @@ const AllProducts = ({}) => {
       ProductList &&
       ProductList.filter((item) => {
         return Filter.every((filter) => {
-          const { brand, product_type, price, priceRange } = filter;
+          const { brand, product_type, priceRange, price } = filter;
 
           const brandMatch =
             brand === "All" ? true : brand ? item.brand === brand : true;
@@ -103,8 +80,8 @@ const AllProducts = ({}) => {
             product_type === "All"
               ? true
               : product_type
-              ? item.product_type === product_type
-              : true;
+                ? item.product_type === product_type
+                : true;
 
           const priceMatch = price
             ? parseFloat(item.price) <= parseFloat(price)
@@ -115,7 +92,7 @@ const AllProducts = ({}) => {
             : true;
 
           return (
-            brandMatch && productTypeMatch && priceMatch && priceRangeMatch
+            brandMatch && productTypeMatch && priceRangeMatch && priceMatch
           );
         });
       });
@@ -128,6 +105,8 @@ const AllProducts = ({}) => {
     else setDisplayNotFoundImg(false);
   }, [list]);
 
+  console.log(list);
+
   return (
     <React.Fragment>
       <div className={className}>
@@ -139,8 +118,8 @@ const AllProducts = ({}) => {
           {is1000px ? <h1 className="heading">All Products</h1> : ""}
 
           <div className="products">
-            {updatedList &&
-              updatedList.map((item, i) => (
+            {list &&
+              list.map((item, i) => (
                 <Link to={`/Product`} key={i}>
                   <ProductCard item={item} />
                 </Link>

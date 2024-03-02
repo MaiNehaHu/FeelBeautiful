@@ -43,7 +43,7 @@ function App() {
           element={
             <React.Fragment>
               <Carousel />
-             
+
               <BrandCards origin={0} end={10} />
               <ProductCards origin={0} end={10} />
               <BrandCards origin={11} end={20} />
