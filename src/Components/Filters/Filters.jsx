@@ -7,14 +7,14 @@ import useSelectHook from "../../hooks/useSelectHook";
 
 const Filters = ({ getSearchInput, getFilterInput }) => {
   const [price, setPrice] = useState(100);
-  const [priceRange, setPriceRange] = useSelectHook("0-100");
+  const [priceRange, setPriceRange] = useSelectHook("0-1000");
   const [brand, setBrand] = useSelectHook("All");
   const [type, setType] = useSelectHook("All");
 
   const className = "filter";
   const is1000px = useMediaQuery("(min-width: 1000px)");
   const is650px = useMediaQuery("(min-width: 650px)");
-  let FilterToSend = [{ brand, product_type: type, price, priceRange }];
+  let FilterToSend = [{ brand, product_type: type, priceRange, price }];
 
   const list = useSelector((state) => {
     return state.Productslist.data;
@@ -39,14 +39,12 @@ const Filters = ({ getSearchInput, getFilterInput }) => {
 
   //Price ranges
   let priceRangeList = [
-    "1-10",
-    "11-20",
-    "21-30",
-    "31-40",
-    "41-50",
-    "51-60",
-    "61-70",
-    "71-80",
+    "100-200",
+    "201-300",
+    "301-400",
+    "401-500",
+    "501-600",
+    "601-700"
   ];
 
   //Making the list with no duplicate
@@ -115,14 +113,14 @@ const Filters = ({ getSearchInput, getFilterInput }) => {
                 }}
                 type="range"
                 min={1}
-                max={100}
-                step={0.5}
+                max={1000}
+                step={10}
                 defaultValue={100}
-                name="proce-range"
+                name="price-range"
                 id="price-range"
               />
               <span className={className + "__rangeFilter"}>
-                {price === undefined ? `00` : price < 10 ? `0${price}` : price}
+                {price < 10 ? `0${price}` : price}
               </span>
             </section>
 
@@ -177,7 +175,7 @@ const Filters = ({ getSearchInput, getFilterInput }) => {
                 name="priceRange"
                 className={className + "__priceRangeFilter"}
               >
-                <option value="0-100">All Price</option>
+                <option value="0-1000">All Price</option>
 
                 {priceRangeList.map((range, i) => (
                   <option value={range} key={i}>

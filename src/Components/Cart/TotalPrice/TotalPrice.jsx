@@ -18,7 +18,7 @@ const TotalPrice = ({ cartList }) => {
   /**Using reduce method to get sum of the products amount */
   let finalPriceToPay = priceList
     .reduce((curr, acc) => curr + acc, 0)
-    .toFixed(2);
+    .toFixed(1);
 
   function checkNumofItems() {
     cartList.length === 0
@@ -36,7 +36,7 @@ const TotalPrice = ({ cartList }) => {
         <p>Total Items in Cart: {cartList.length}</p>
 
         <button onClick={checkNumofItems}>
-          <Link>Pay💸 ${finalPriceToPay}</Link>
+          <Link>Pay💸 ₹{finalPriceToPay}</Link>
         </button>
       </div>
     </React.Fragment>

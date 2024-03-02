@@ -6,7 +6,7 @@ import { setClickedProduct } from "../../Store/Slices/ClickedProductSlice";
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
   const className = "productCard";
- 
+
   return (
     <React.Fragment>
       <div
@@ -20,16 +20,16 @@ const ProductCard = ({ item }) => {
             <span>{item.price_sign}</span>
             <span>{item.price}</span>
           </div>
-          <p className={className + "__type"}>{item.product_type}</p>
+          <p className={className + "__brand"}>{item.brand.toUpperCase()}</p>
         </section>
 
         <section className={className + "__photo"}>
           <img src={item.api_featured_image} alt={item.name} />
         </section>
 
-        <section className={className + "__brand"}>
+        <section className={className + "__type"}>
           <p>
-            <q>{item.brand}</q>
+            {item.product_type.toUpperCase()}
           </p>
         </section>
 

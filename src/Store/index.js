@@ -7,6 +7,7 @@ import ClickedProductSlice from "./Slices/ClickedProductSlice";
 import selectedProductColorSlice from "./Slices/SelectedProductColorSlice";
 import LoginUserSlice from "./Slices/LoginUserSlice";
 import LoggedUserDetailsSlice from "./Slices/LoggedUserDetailsSlice";
+import DollarValueSlice from "./Slices/DollarValueSlice";
 
 /**This is the store for all slices */
 const store = configureStore({
@@ -14,6 +15,8 @@ const store = configureStore({
     CartList: CartListSlice,
 
     Productslist: ProductsListSlice,
+
+    DollarValue : DollarValueSlice,
 
     clickedBrand: clickedBrandSlice,
 
