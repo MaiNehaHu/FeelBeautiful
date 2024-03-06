@@ -105,7 +105,6 @@ const AllProducts = ({ }) => {
     else setDisplayNotFoundImg(false);
   }, [list]);
 
-  console.log(list);
 
   return (
     <React.Fragment>
